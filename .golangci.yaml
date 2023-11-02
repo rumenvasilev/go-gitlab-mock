@@ -1,0 +1,10 @@
+run:
+  skip-dirs:
+    - spec
+  skip-files:
+    - ".*_test\\.go$"
+issues:
+  exclude-rules:
+    - linters:
+      - errcheck
+      text: "Error return value of `.*.Log|jsonparser.ObjectEach|os.WriteFile|w.Write` is not checked"
