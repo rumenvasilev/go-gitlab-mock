@@ -27,4 +27,4 @@ You will end up with an updated OpenAPI specification under `doc/api/openapi/ope
 
 ## Regenerating mock endpoints for Gitlab's REST API
 
-Copy the openapi spec to `src/spec` and run `go run main.go -spec-path src/spec/openapi.yaml`. You will end up with an updated `src/mock/endpointpattern.go`. Unfortunately Gitlab has a few special endpoints that resemble a function call (ending with `()`) within the URI path. Currently that's not escaped and needs to be manually adjusted, before the mock could be published. Gofmt will tell you which lines need to be updated.
+Copy the openapi spec to `src/spec` and run `go run main.go -spec-path src/spec/openapi.yaml`. You will end up with an updated `src/mock/endpointpattern.go`.
