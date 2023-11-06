@@ -187,6 +187,11 @@ var GetApiV4BulkImportsEntitiesByImportIdByEntityId EndpointPattern = EndpointPa
 	Method:  "GET",
 }
 
+var GetApiV4BulkImportsEntitiesFailuresByImportIdByEntityId EndpointPattern = EndpointPattern{
+	Pattern: "/api/v4/bulk_imports/{import_id}/entities/{entity_id}/failures",
+	Method:  "GET",
+}
+
 var PostApiV4ClustersMetricsDashboardAnnotationsById EndpointPattern = EndpointPattern{
 	Pattern: "/api/v4/clusters/{id}/metrics_dashboard/annotations",
 	Method:  "POST",

@@ -552,7 +552,7 @@ paths:
         description: The expiration date of the token
         type: string
         format: date
-        default: '2024-10-31T22:19:26.112Z'
+        default: '2024-11-05T08:47:59.737Z'
         required: true
         example: "\"2021-01-31"
       - in: formData
@@ -2794,6 +2794,11 @@ paths:
         type: string
         required: false
       - in: query
+        name: package_version
+        description: Return packages with this version
+        type: string
+        required: false
+      - in: query
         name: include_versionless
         description: Returns packages without a version
         type: boolean
@@ -4729,7 +4734,12 @@ paths:
         required: false
       - in: formData
         name: emails_disabled
-        description: Disable email notifications
+        description: '_(Deprecated)_ Disable email notifications. Use: emails_enabled'
+        type: boolean
+        required: false
+      - in: formData
+        name: emails_enabled
+        description: Enable email notifications
         type: boolean
         required: false
       - in: formData
@@ -4990,7 +5000,12 @@ paths:
         required: false
       - in: formData
         name: emails_disabled
-        description: Disable email notifications
+        description: '_(Deprecated)_ Disable email notifications. Use: emails_enabled'
+        type: boolean
+        required: false
+      - in: formData
+        name: emails_enabled
+        description: Enable email notifications
         type: boolean
         required: false
       - in: formData
@@ -7787,7 +7802,7 @@ paths:
         description: The expiration date of the token
         type: string
         format: date
-        default: '2024-10-31T22:19:26.109Z'
+        default: '2024-11-05T08:47:59.735Z'
         required: true
         example: "\"2021-01-31"
       - in: formData
@@ -10171,6 +10186,11 @@ paths:
         description: Merge requests of this forked project targets itself by default
         type: boolean
         required: false
+      - in: formData
+        name: branches
+        description: Branches to fork
+        type: string
+        required: false
       responses:
         '201':
           description: Fork new project for the current user or provided namespace.
@@ -11272,6 +11292,12 @@ paths:
         format: date-time
         required: false
       - in: query
+        name: include_pending_delete
+        description: Include projects in pending delete state. Can only be set by
+          admins
+        type: boolean
+        required: false
+      - in: query
         name: wiki_checksum_failed
         description: Limit by projects where wiki checksum is failed
         type: boolean
@@ -11280,6 +11306,12 @@ paths:
       - in: query
         name: repository_checksum_failed
         description: Limit by projects where repository checksum is failed
+        type: boolean
+        default: false
+        required: false
+      - in: query
+        name: include_hidden
+        description: Include hidden projects. Can only be set by admins
         type: boolean
         default: false
         required: false
@@ -12660,6 +12692,12 @@ paths:
         format: date-time
         required: false
       - in: query
+        name: include_pending_delete
+        description: Include projects in pending delete state. Can only be set by
+          admins
+        type: boolean
+        required: false
+      - in: query
         name: wiki_checksum_failed
         description: Limit by projects where wiki checksum is failed
         type: boolean
@@ -12668,6 +12706,12 @@ paths:
       - in: query
         name: repository_checksum_failed
         description: Limit by projects where repository checksum is failed
+        type: boolean
+        default: false
+        required: false
+      - in: query
+        name: include_hidden
+        description: Include hidden projects. Can only be set by admins
         type: boolean
         default: false
         required: false
@@ -13599,6 +13643,11 @@ paths:
       - in: query
         name: package_name
         description: Return packages with this name
+        type: string
+        required: false
+      - in: query
+        name: package_version
+        description: Return packages with this version
         type: string
         required: false
       - in: query
@@ -40786,6 +40835,39 @@ paths:
       tags:
       - avatar
       operationId: getApiV4Avatar
+  "/api/v4/bulk_imports/{import_id}/entities/{entity_id}/failures":
+    get:
+      summary: Get GitLab Migration entity failures
+      description: This feature was introduced in GitLab 16.6
+      produces:
+      - application/json
+      parameters:
+      - in: path
+        name: import_id
+        description: The ID of user's GitLab Migration
+        type: integer
+        format: int32
+        required: true
+      - in: path
+        name: entity_id
+        description: The ID of GitLab Migration entity
+        type: integer
+        format: int32
+        required: true
+      responses:
+        '200':
+          description: Get GitLab Migration entity failures
+          schema:
+            "$ref": "#/definitions/API_Entities_BulkImports_EntityFailure"
+        '401':
+          description: Unauthorized
+        '404':
+          description: Not found
+        '503':
+          description: Service unavailable
+      tags:
+      - bulk_imports
+      operationId: getApiV4BulkImportsImportIdEntitiesEntityIdFailures
   "/api/v4/bulk_imports/{import_id}/entities/{entity_id}":
     get:
       summary: Get GitLab Migration entity details
@@ -45436,6 +45518,12 @@ paths:
         format: date-time
         required: false
       - in: query
+        name: include_pending_delete
+        description: Include projects in pending delete state. Can only be set by
+          admins
+        type: boolean
+        required: false
+      - in: query
         name: wiki_checksum_failed
         description: Limit by projects where wiki checksum is failed
         type: boolean
@@ -45444,6 +45532,12 @@ paths:
       - in: query
         name: repository_checksum_failed
         description: Limit by projects where repository checksum is failed
+        type: boolean
+        default: false
+        required: false
+      - in: query
+        name: include_hidden
+        description: Include hidden projects. Can only be set by admins
         type: boolean
         default: false
         required: false
@@ -45740,6 +45834,12 @@ paths:
         format: date-time
         required: false
       - in: query
+        name: include_pending_delete
+        description: Include projects in pending delete state. Can only be set by
+          admins
+        type: boolean
+        required: false
+      - in: query
         name: wiki_checksum_failed
         description: Limit by projects where wiki checksum is failed
         type: boolean
@@ -45748,6 +45848,12 @@ paths:
       - in: query
         name: repository_checksum_failed
         description: Limit by projects where repository checksum is failed
+        type: boolean
+        default: false
+        required: false
+      - in: query
+        name: include_hidden
+        description: Include hidden projects. Can only be set by admins
         type: boolean
         default: false
         required: false
@@ -50531,7 +50637,7 @@ paths:
         description: Date string in the format YEAR-MONTH-DAY
         type: string
         format: date-time
-        default: '2023-05-01T22:19:27.195Z'
+        default: '2023-05-06T08:48:00.837Z'
         required: false
       - in: query
         name: page
@@ -53649,7 +53755,9 @@ definitions:
       subgroup_creation_level:
         type: string
       emails_disabled:
-        type: string
+        type: boolean
+      emails_enabled:
+        type: boolean
       mentions_disabled:
         type: string
       lfs_enabled:
@@ -54320,7 +54428,9 @@ definitions:
       subgroup_creation_level:
         type: string
       emails_disabled:
-        type: string
+        type: boolean
+      emails_enabled:
+        type: boolean
       mentions_disabled:
         type: string
       lfs_enabled:
@@ -58878,6 +58988,28 @@ definitions:
       avatar_url:
         type: string
     description: API_Entities_Avatar model
+  API_Entities_BulkImports_EntityFailure:
+    type: object
+    properties:
+      relation:
+        type: string
+        example: label
+      exception_message:
+        type: string
+        example: error message
+      exception_class:
+        type: string
+        example: Exception
+      correlation_id_value:
+        type: string
+        example: dfcf583058ed4508e4c7c617bd7f0edd
+      source_url:
+        type: string
+        example: https://source.gitlab.com/group/-/epics/1
+      source_title:
+        type: string
+        example: title
+    description: API_Entities_BulkImports_EntityFailure model
   API_Entities_BulkImports:
     type: object
     properties:
@@ -58949,34 +59081,6 @@ definitions:
         type: boolean
         example: false
     description: API_Entities_BulkImports model
-  API_Entities_BulkImports_EntityFailure:
-    type: object
-    properties:
-      relation:
-        type: string
-        example: group
-      step:
-        type: string
-        example: extractor
-      exception_message:
-        type: string
-        example: error message
-      exception_class:
-        type: string
-        example: Exception
-      correlation_id_value:
-        type: string
-        example: dfcf583058ed4508e4c7c617bd7f0edd
-      created_at:
-        type: string
-        format: date-time
-        example: '2012-05-28T04:42:42-07:00'
-      pipeline_class:
-        type: string
-        example: BulkImports::Groups::Pipelines::GroupPipeline
-      pipeline_step:
-        type: string
-        example: extractor
   API_Entities_BulkImport:
     type: object
     properties:
