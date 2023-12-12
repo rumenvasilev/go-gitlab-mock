@@ -12,7 +12,7 @@ And this is what I used in the end.
 
 * Clone https://gitlab.com/gitlab-org/gitlab
 * Add a line `mount ::API::Issues` after 276 (`mount ::API:IssueLinks`) to this file https://gitlab.com/gitlab-org/gitlab/-/blob/master/lib/api/api.rb
-* Build the Dockerfile and run it from the root of this repository `docker run -it --rm -v .:/tmp/code $myimage bash`
+* Build the Dockerfile and run it from the root of the gitlab cloned repository: `docker run -it --rm -v .:/tmp/code $myimage bash`
 * Once in docker:
 
 ```bash
