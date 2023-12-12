@@ -498,6 +498,13 @@ paths:
         description: The ID of the token
         type: string
         required: true
+      - in: formData
+        name: expires_at
+        description: The expiration date of the token
+        type: string
+        format: date
+        required: false
+        example: '2021-01-31'
       responses:
         '201':
           description: Rotate a resource access token
@@ -552,7 +559,7 @@ paths:
         description: The expiration date of the token
         type: string
         format: date
-        default: '2024-11-05T08:47:59.737Z'
+        default: '2024-12-11T19:21:45.551Z'
         required: true
         example: "\"2021-01-31"
       - in: formData
@@ -3690,6 +3697,12 @@ paths:
         required: false
         example: "['macos', 'shell']"
       - in: query
+        name: version_prefix
+        description: The version prefix of runners to return
+        type: string
+        required: false
+        example: "'15.1.' or '16.'"
+      - in: query
         name: page
         description: Current page number
         type: integer
@@ -3832,6 +3845,62 @@ paths:
       tags:
       - groups
       operationId: getApiV4GroupsIdSshCertificates
+  "/api/v4/groups/{id}/users":
+    get:
+      description: Get a list of users for the group
+      produces:
+      - application/json
+      parameters:
+      - in: query
+        name: include_saml_users
+        description: Return users with a SAML identity in this group
+        type: boolean
+        required: false
+      - in: query
+        name: include_service_accounts
+        description: Return service accounts owned by this group
+        type: boolean
+        required: false
+      - in: query
+        name: search
+        description: Search users by name, email or username
+        type: string
+        required: false
+      - in: query
+        name: page
+        description: Current page number
+        type: integer
+        format: int32
+        default: 1
+        required: false
+        example: 1
+      - in: query
+        name: per_page
+        description: Number of items per page
+        type: integer
+        format: int32
+        default: 20
+        required: false
+        example: 20
+      - in: path
+        name: id
+        type: integer
+        format: int32
+        required: true
+      responses:
+        '200':
+          description: Get a list of users for the group
+          schema:
+            "$ref": "#/definitions/API_Entities_UserPublic"
+        '400':
+          description: Bad request
+        '403':
+          description: Forbidden
+        '404':
+          description: 404 Not Found
+      tags:
+      - groups
+      operationId: getApiV4GroupsIdUsers
   "/api/v4/groups/{id}/provisioned_users":
     get:
       description: Get a list of users provisioned by the group
@@ -4906,6 +4975,11 @@ paths:
         name: ip_restriction_ranges
         description: List of IP addresses which need to be restricted for group
         type: string
+        required: false
+      - in: formData
+        name: service_access_tokens_expiration_enforced
+        description: To enforce token expiration for Service accounts users for group
+        type: boolean
         required: false
       responses:
         '200':
@@ -6827,6 +6901,49 @@ paths:
       tags:
       - nuget_packages
       operationId: getApiV4GroupsIdPackagesNugetIndex
+  "/api/v4/groups/{id}/-/packages/nuget/symbolfiles/*file_name/*signature/*same_file_name":
+    get:
+      summary: The NuGet Symbol File Download Endpoint
+      description: This feature was introduced in GitLab 16.7
+      produces:
+      - application/json
+      parameters:
+      - in: header
+        name: Symbolchecksum
+        type: string
+        required: true
+      - in: path
+        name: id
+        description: The group ID or full group path.
+        type: integer
+        format: int32
+        required: true
+      - in: query
+        name: file_name
+        description: The symbol file name
+        type: string
+        required: true
+        example: mynugetpkg.pdb
+      - in: query
+        name: signature
+        description: The symbol file signature
+        type: string
+        required: true
+        example: k813f89485474661234z7109cve5709eFFFFFFFF
+      - in: query
+        name: same_file_name
+        type: string
+        required: true
+      responses:
+        '200':
+          description: The NuGet Symbol File Download Endpoint
+        '400':
+          description: Bad Request
+        '404':
+          description: Not Found
+      tags:
+      - nuget_packages
+      operationId: getApiV4GroupsIdPackagesNugetSymbolfiles*fileName*signature*sameFileName
   "/api/v4/groups/{id}/-/packages/nuget/v2/$metadata":
     get:
       summary: The NuGet V2 Feed Package $metadata endpoint
@@ -7748,6 +7865,13 @@ paths:
         description: The ID of the token
         type: string
         required: true
+      - in: formData
+        name: expires_at
+        description: The expiration date of the token
+        type: string
+        format: date
+        required: false
+        example: '2021-01-31'
       responses:
         '201':
           description: Rotate a resource access token
@@ -7802,7 +7926,7 @@ paths:
         description: The expiration date of the token
         type: string
         format: date
-        default: '2024-11-05T08:47:59.735Z'
+        default: '2024-12-11T19:21:45.548Z'
         required: true
         example: "\"2021-01-31"
       - in: formData
@@ -10783,6 +10907,11 @@ paths:
         - enabled
         required: false
       - in: formData
+        name: prevent_merge_without_jira_issue
+        description: Require an associated issue from Jira
+        type: boolean
+        required: false
+      - in: formData
         name: ci_default_git_depth
         description: Default number of revisions for shallow cloning
         type: integer
@@ -11906,6 +12035,11 @@ paths:
         - enabled
         required: false
       - in: formData
+        name: prevent_merge_without_jira_issue
+        description: Require an associated issue from Jira
+        type: boolean
+        required: false
+      - in: formData
         name: use_custom_template
         description: Use custom template
         type: boolean
@@ -12471,6 +12605,11 @@ paths:
         - disabled
         - private
         - enabled
+        required: false
+      - in: formData
+        name: prevent_merge_without_jira_issue
+        description: Require an associated issue from Jira
+        type: boolean
         required: false
       - in: formData
         name: use_custom_template
@@ -14402,6 +14541,11 @@ paths:
         - private
         - enabled
         required: false
+      - in: formData
+        name: override_params[prevent_merge_without_jira_issue]
+        description: Require an associated issue from Jira
+        type: boolean
+        required: false
       responses:
         '201':
           description: Create a new project import using a file from AWS S3
@@ -14952,6 +15096,11 @@ paths:
         - disabled
         - private
         - enabled
+        required: false
+      - in: formData
+        name: override_params[prevent_merge_without_jira_issue]
+        description: Require an associated issue from Jira
+        type: boolean
         required: false
       responses:
         '201':
@@ -15533,6 +15682,11 @@ paths:
         - disabled
         - private
         - enabled
+        required: false
+      - in: formData
+        name: override_params[prevent_merge_without_jira_issue]
+        description: Require an associated issue from Jira
+        type: boolean
         required: false
       - in: formData
         name: file.path
@@ -19273,6 +19427,165 @@ paths:
       tags:
       - ci_lint
       operationId: getApiV4ProjectsIdCiLint
+  "/api/v4/projects/{id}/issues/{issue_iid}/links/{issue_link_id}":
+    delete:
+      summary: Delete an issue link
+      description: Deletes an issue link, thus removes the two-way relationship.
+      produces:
+      - application/json
+      parameters:
+      - in: path
+        name: id
+        description: The ID or URL-encoded path of the project owned by the authenticated
+          user
+        type: string
+        required: true
+      - in: path
+        name: issue_iid
+        description: The internal ID of a project’s issue
+        type: integer
+        format: int32
+        required: true
+      - in: path
+        name: issue_link_id
+        description: The ID of an issue relationship
+        type: string
+        required: true
+      responses:
+        '401':
+          description: Unauthorized
+        '204':
+          description: Delete an issue link
+          schema:
+            "$ref": "#/definitions/API_Entities_IssueLink"
+        '404':
+          description: Not found
+      tags:
+      - issue_links
+      operationId: deleteApiV4ProjectsIdIssuesIssueIidLinksIssueLinkId
+    get:
+      summary: Get an issue link
+      description: Gets details about an issue link. This feature was introduced in
+        GitLab 15.1.
+      produces:
+      - application/json
+      parameters:
+      - in: path
+        name: id
+        description: The ID or URL-encoded path of the project owned by the authenticated
+          user
+        type: string
+        required: true
+      - in: path
+        name: issue_iid
+        description: The internal ID of a project’s issue
+        type: integer
+        format: int32
+        required: true
+      - in: path
+        name: issue_link_id
+        description: ID of an issue relationship
+        type: string
+        required: true
+      responses:
+        '200':
+          description: Get an issue link
+          schema:
+            "$ref": "#/definitions/API_Entities_IssueLink"
+        '401':
+          description: Unauthorized
+        '404':
+          description: Not found
+      tags:
+      - issue_links
+      operationId: getApiV4ProjectsIdIssuesIssueIidLinksIssueLinkId
+  "/api/v4/projects/{id}/issues/{issue_iid}/links":
+    post:
+      summary: Create an issue link
+      description: Creates a two-way relation between two issues.The user must be
+        allowed to update both issues to succeed.
+      produces:
+      - application/json
+      consumes:
+      - application/json
+      parameters:
+      - in: path
+        name: id
+        description: The ID or URL-encoded path of the project owned by the authenticated
+          user
+        type: string
+        required: true
+      - in: path
+        name: issue_iid
+        description: The internal ID of a project’s issue
+        type: integer
+        format: int32
+        required: true
+      - in: formData
+        name: target_project_id
+        description: The ID or URL-encoded path of a target project
+        type: string
+        required: true
+      - in: formData
+        name: target_issue_iid
+        description: The internal ID of a target project’s issue
+        type: string
+        required: true
+      - in: formData
+        name: link_type
+        description: The type of the relation (“relates_to”, “blocks”, “is_blocked_by”),defaults
+          to “relates_to”)
+        type: string
+        enum:
+        - relates_to
+        - blocks
+        - is_blocked_by
+        required: false
+      responses:
+        '201':
+          description: Create an issue link
+          schema:
+            "$ref": "#/definitions/API_Entities_IssueLink"
+        '400':
+          description: Bad Request
+        '401':
+          description: Unauthorized
+      tags:
+      - issue_links
+      operationId: postApiV4ProjectsIdIssuesIssueIidLinks
+    get:
+      summary: List issue relations
+      description: Get a list of a given issue’s linked issues, sorted by the relationship
+        creation datetime (ascending).Issues are filtered according to the user authorizations.
+      produces:
+      - application/json
+      parameters:
+      - in: path
+        name: id
+        description: The ID or URL-encoded path of the project owned by the authenticated
+          user
+        type: string
+        required: true
+      - in: path
+        name: issue_iid
+        description: The internal ID of a project’s issue
+        type: integer
+        format: int32
+        required: true
+      responses:
+        '200':
+          description: List issue relations
+          schema:
+            type: array
+            items:
+              "$ref": "#/definitions/API_Entities_RelatedIssue"
+        '401':
+          description: Unauthorized
+        '404':
+          description: Not found
+      tags:
+      - issue_links
+      operationId: getApiV4ProjectsIdIssuesIssueIidLinks
   "/api/v4/projects/{id}/issues/{issue_iid}/user_agent_detail":
     get:
       description: Get the user agent details for an issue
@@ -20563,165 +20876,6 @@ paths:
       tags:
       - issues
       operationId: postApiV4ProjectsIdIssuesIssueIidTimeEstimate
-  "/api/v4/projects/{id}/issues/{issue_iid}/links/{issue_link_id}":
-    delete:
-      summary: Delete an issue link
-      description: Deletes an issue link, thus removes the two-way relationship.
-      produces:
-      - application/json
-      parameters:
-      - in: path
-        name: id
-        description: The ID or URL-encoded path of the project owned by the authenticated
-          user
-        type: string
-        required: true
-      - in: path
-        name: issue_iid
-        description: The internal ID of a project’s issue
-        type: integer
-        format: int32
-        required: true
-      - in: path
-        name: issue_link_id
-        description: The ID of an issue relationship
-        type: string
-        required: true
-      responses:
-        '401':
-          description: Unauthorized
-        '204':
-          description: Delete an issue link
-          schema:
-            "$ref": "#/definitions/API_Entities_IssueLink"
-        '404':
-          description: Not found
-      tags:
-      - issue_links
-      operationId: deleteApiV4ProjectsIdIssuesIssueIidLinksIssueLinkId
-    get:
-      summary: Get an issue link
-      description: Gets details about an issue link. This feature was introduced in
-        GitLab 15.1.
-      produces:
-      - application/json
-      parameters:
-      - in: path
-        name: id
-        description: The ID or URL-encoded path of the project owned by the authenticated
-          user
-        type: string
-        required: true
-      - in: path
-        name: issue_iid
-        description: The internal ID of a project’s issue
-        type: integer
-        format: int32
-        required: true
-      - in: path
-        name: issue_link_id
-        description: ID of an issue relationship
-        type: string
-        required: true
-      responses:
-        '200':
-          description: Get an issue link
-          schema:
-            "$ref": "#/definitions/API_Entities_IssueLink"
-        '401':
-          description: Unauthorized
-        '404':
-          description: Not found
-      tags:
-      - issue_links
-      operationId: getApiV4ProjectsIdIssuesIssueIidLinksIssueLinkId
-  "/api/v4/projects/{id}/issues/{issue_iid}/links":
-    post:
-      summary: Create an issue link
-      description: Creates a two-way relation between two issues.The user must be
-        allowed to update both issues to succeed.
-      produces:
-      - application/json
-      consumes:
-      - application/json
-      parameters:
-      - in: path
-        name: id
-        description: The ID or URL-encoded path of the project owned by the authenticated
-          user
-        type: string
-        required: true
-      - in: path
-        name: issue_iid
-        description: The internal ID of a project’s issue
-        type: integer
-        format: int32
-        required: true
-      - in: formData
-        name: target_project_id
-        description: The ID or URL-encoded path of a target project
-        type: string
-        required: true
-      - in: formData
-        name: target_issue_iid
-        description: The internal ID of a target project’s issue
-        type: string
-        required: true
-      - in: formData
-        name: link_type
-        description: The type of the relation (“relates_to”, “blocks”, “is_blocked_by”),defaults
-          to “relates_to”)
-        type: string
-        enum:
-        - relates_to
-        - blocks
-        - is_blocked_by
-        required: false
-      responses:
-        '201':
-          description: Create an issue link
-          schema:
-            "$ref": "#/definitions/API_Entities_IssueLink"
-        '400':
-          description: Bad Request
-        '401':
-          description: Unauthorized
-      tags:
-      - issue_links
-      operationId: postApiV4ProjectsIdIssuesIssueIidLinks
-    get:
-      summary: List issue relations
-      description: Get a list of a given issue’s linked issues, sorted by the relationship
-        creation datetime (ascending).Issues are filtered according to the user authorizations.
-      produces:
-      - application/json
-      parameters:
-      - in: path
-        name: id
-        description: The ID or URL-encoded path of the project owned by the authenticated
-          user
-        type: string
-        required: true
-      - in: path
-        name: issue_iid
-        description: The internal ID of a project’s issue
-        type: integer
-        format: int32
-        required: true
-      responses:
-        '200':
-          description: List issue relations
-          schema:
-            type: array
-            items:
-              "$ref": "#/definitions/API_Entities_RelatedIssue"
-        '401':
-          description: Unauthorized
-        '404':
-          description: Not found
-      tags:
-      - issue_links
-      operationId: getApiV4ProjectsIdIssuesIssueIidLinks
   "/api/v4/projects/{id}/invitations/{email}":
     delete:
       description: Removes an invitation from a group or project.
@@ -20995,7 +21149,6 @@ paths:
         - jenkins
         - jira
         - mattermost-slash-commands
-        - shimo
         - slack-slash-commands
         - packagist
         - pipelines-email
@@ -21073,7 +21226,6 @@ paths:
         - jenkins
         - jira
         - mattermost-slash-commands
-        - shimo
         - slack-slash-commands
         - packagist
         - pipelines-email
@@ -22681,39 +22833,6 @@ paths:
       tags:
       - integrations
       operationId: putApiV4ProjectsIdIntegrationsSlackSlashCommands
-  "/api/v4/projects/{id}/integrations/shimo":
-    put:
-      summary: Create/Edit Shimo integration
-      description: Set Shimo integration for a project.
-      produces:
-      - application/json
-      consumes:
-      - application/json
-      parameters:
-      - in: path
-        name: id
-        description: The ID or URL-encoded path of the project
-        type: string
-        required: true
-      - in: formData
-        name: external_wiki_url
-        description: Shimo workspace URL
-        type: string
-        required: true
-      responses:
-        '200':
-          description: Create/Edit Shimo integration
-          schema:
-            "$ref": "#/definitions/API_Entities_ProjectIntegrationBasic"
-        '400':
-          description: Bad request
-        '401':
-          description: Unauthorized
-        '404':
-          description: Not found
-      tags:
-      - integrations
-      operationId: putApiV4ProjectsIdIntegrationsShimo
   "/api/v4/projects/{id}/integrations/mattermost-slash-commands":
     put:
       summary: Create/Edit Mattermost Slash Commands integration
@@ -24097,7 +24216,6 @@ paths:
         - jenkins
         - jira
         - mattermost-slash-commands
-        - shimo
         - slack-slash-commands
         - packagist
         - pipelines-email
@@ -24175,7 +24293,6 @@ paths:
         - jenkins
         - jira
         - mattermost-slash-commands
-        - shimo
         - slack-slash-commands
         - packagist
         - pipelines-email
@@ -25783,39 +25900,6 @@ paths:
       tags:
       - integrations
       operationId: putApiV4ProjectsIdServicesSlackSlashCommands
-  "/api/v4/projects/{id}/services/shimo":
-    put:
-      summary: Create/Edit Shimo integration
-      description: Set Shimo integration for a project.
-      produces:
-      - application/json
-      consumes:
-      - application/json
-      parameters:
-      - in: path
-        name: id
-        description: The ID or URL-encoded path of the project
-        type: string
-        required: true
-      - in: formData
-        name: external_wiki_url
-        description: Shimo workspace URL
-        type: string
-        required: true
-      responses:
-        '200':
-          description: Create/Edit Shimo integration
-          schema:
-            "$ref": "#/definitions/API_Entities_ProjectIntegrationBasic"
-        '400':
-          description: Bad request
-        '401':
-          description: Unauthorized
-        '404':
-          description: Not found
-      tags:
-      - integrations
-      operationId: putApiV4ProjectsIdServicesShimo
   "/api/v4/projects/{id}/services/mattermost-slash-commands":
     put:
       summary: Create/Edit Mattermost Slash Commands integration
@@ -32637,6 +32721,12 @@ paths:
         required: false
         example: "['macos', 'shell']"
       - in: query
+        name: version_prefix
+        description: The version prefix of runners to return
+        type: string
+        required: false
+        example: "'15.1.' or '16.'"
+      - in: query
         name: page
         description: Current page number
         type: integer
@@ -37829,6 +37919,48 @@ paths:
       tags:
       - nuget_packages
       operationId: getApiV4ProjectsIdPackagesNugetIndex
+  "/api/v4/projects/{id}/packages/nuget/symbolfiles/*file_name/*signature/*same_file_name":
+    get:
+      summary: The NuGet Symbol File Download Endpoint
+      description: This feature was introduced in GitLab 16.7
+      produces:
+      - application/json
+      parameters:
+      - in: header
+        name: Symbolchecksum
+        type: string
+        required: true
+      - in: path
+        name: id
+        description: The ID or URL-encoded path of the project
+        type: string
+        required: true
+      - in: query
+        name: file_name
+        description: The symbol file name
+        type: string
+        required: true
+        example: mynugetpkg.pdb
+      - in: query
+        name: signature
+        description: The symbol file signature
+        type: string
+        required: true
+        example: k813f89485474661234z7109cve5709eFFFFFFFF
+      - in: query
+        name: same_file_name
+        type: string
+        required: true
+      responses:
+        '200':
+          description: The NuGet Symbol File Download Endpoint
+        '400':
+          description: Bad Request
+        '404':
+          description: Not Found
+      tags:
+      - nuget_packages
+      operationId: getApiV4ProjectsIdPackagesNugetSymbolfiles*fileName*signature*sameFileName
   "/api/v4/projects/{id}/packages/nuget/v2/authorize":
     put:
       summary: The NuGet V2 Feed Package Authorize endpoint
@@ -38850,6 +38982,35 @@ paths:
         type: string
         required: false
         example: ba7816bf8f01cfea414140de5dae2223b00361a396177a9cb410ff61f20015ad
+      - in: formData
+        name: metadata_version
+        type: string
+        required: false
+        example: '2.3'
+      - in: formData
+        name: author_email
+        type: string
+        required: false
+        example: cschultz@example.com, snoopy@peanuts.com
+      - in: formData
+        name: description
+        type: string
+        required: false
+      - in: formData
+        name: description_content_type
+        type: string
+        required: false
+        example: text/markdown; charset=UTF-8; variant=GFM
+      - in: formData
+        name: summary
+        type: string
+        required: false
+        example: A module for collecting votes from beagles.
+      - in: formData
+        name: keywords
+        type: string
+        required: false
+        example: dog,puppy,voting,election
       responses:
         '201':
           description: The PyPi Package upload endpoint
@@ -41555,6 +41716,12 @@ paths:
         required: false
         example: "['macos', 'shell']"
       - in: query
+        name: version_prefix
+        description: The version prefix of runners to return
+        type: string
+        required: false
+        example: "'15.1.' or '16.'"
+      - in: query
         name: page
         description: Current page number
         type: integer
@@ -41642,6 +41809,12 @@ paths:
           type: string
         required: false
         example: "['macos', 'shell']"
+      - in: query
+        name: version_prefix
+        description: The version prefix of runners to return
+        type: string
+        required: false
+        example: "'15.1.' or '16.'"
       - in: query
         name: page
         description: Current page number
@@ -45049,7 +45222,6 @@ paths:
         name: order_by
         description: Return users ordered by a field
         type: string
-        default: id
         enum:
         - id
         - name
@@ -45061,7 +45233,6 @@ paths:
         name: sort
         description: Return users sorted in ascending and descending order
         type: string
-        default: desc
         enum:
         - asc
         - desc
@@ -47176,6 +47347,33 @@ paths:
       tags:
       - geo
       operationId: postApiV4GeoStatus
+  "/api/v4/geo/repositories/{gl_repository}/pipeline_refs":
+    get:
+      summary: Used by secondary runners to verify the secondary instance has the
+        very latest version
+      description: Returns the list of pipeline refs for the project
+      produces:
+      - application/json
+      parameters:
+      - in: path
+        name: gl_repository
+        description: The repository to check
+        type: string
+        required: true
+      responses:
+        '200':
+          description: Returns the list of pipeline refs for the project
+          schema:
+            type: array
+            items:
+              "$ref": "#/definitions/EE_API_Entities_Geo_PipelineRefs"
+        '401':
+          description: 401 Unauthorized
+        '404':
+          description: 404 Not found
+      tags:
+      - geo
+      operationId: getApiV4GeoRepositoriesGlRepositoryPipelineRefs
   "/api/v4/geo/retrieve/{replicable_name}/{replicable_id}":
     get:
       summary: Internal endpoint that returns a replicable file
@@ -48977,6 +49175,13 @@ paths:
       consumes:
       - application/json
       parameters:
+      - in: formData
+        name: expires_at
+        description: The expiration date of the token
+        type: string
+        format: date
+        required: false
+        example: '2021-01-31'
       - in: path
         name: id
         type: integer
@@ -50637,7 +50842,7 @@ paths:
         description: Date string in the format YEAR-MONTH-DAY
         type: string
         format: date-time
-        default: '2023-05-06T08:48:00.837Z'
+        default: '2023-06-12T19:21:48.353Z'
         required: false
       - in: query
         name: page
@@ -50786,6 +50991,12 @@ paths:
         name: pass_user_identities_to_ci_jwt
         description: Flag indicating the user passes their external identities to
           a CI job as part of a JSON web token.
+        type: boolean
+        required: false
+      - in: formData
+        name: code_suggestions
+        description: Flag indicating the user allows code suggestions.Argument is
+          experimental and can be removed in the future without notice.
         type: boolean
         required: false
       responses:
@@ -51283,6 +51494,7 @@ paths:
         - gold
         - ultimate
         - ultimate_trial
+        - ultimate_trial_paid_customer
         - premium_trial
         - opensource
         required: true
@@ -51436,6 +51648,7 @@ paths:
         - gold
         - ultimate
         - ultimate_trial
+        - ultimate_trial_paid_customer
         - premium_trial
         - opensource
         required: false
@@ -52527,6 +52740,10 @@ definitions:
       trailers:
         type: object
         example: '{ "Merged-By": "Jane Doe janedoe@gitlab.com" }'
+      extended_trailers:
+        type: object
+        example: '{ "Signed-off-by": ["John Doe <johndoe@gitlab.com>", "Jane Doe <janedoe@gitlab.com>"]
+          }'
       web_url:
         type: string
         example: https://gitlab.example.com/janedoe/gitlab-foss/-/commit/ed899a2f4b50b4370feeea94676502b42383c746
@@ -52913,6 +53130,8 @@ definitions:
       read_vulnerability:
         type: boolean
       manage_project_access_tokens:
+        type: boolean
+      archive_project:
         type: boolean
   API_Entities_Issue:
     type: object
@@ -53329,6 +53548,9 @@ definitions:
         type: integer
         format: int32
         example: 12345
+      status:
+        type: string
+        example: delete_scheduled
     description: API_Entities_ContainerRegistry_Repository model
   API_Entities_ContainerRegistry_Tag:
     type: object
@@ -53835,6 +54057,8 @@ definitions:
         type: string
       prevent_forking_outside_group:
         type: string
+      service_access_tokens_expiration_enforced:
+        type: string
       membership_lock:
         type: string
       ip_restriction_ranges:
@@ -53876,6 +54100,10 @@ definitions:
         type: integer
         format: int32
         example: 40
+      member_role_id:
+        type: integer
+        format: int32
+        example: 12
   API_Entities_Project:
     type: object
     properties:
@@ -54234,6 +54462,8 @@ definitions:
         type: string
       allow_pipeline_trigger_approve_deployment:
         type: boolean
+      prevent_merge_without_jira_issue:
+        type: string
     description: API_Entities_Project model
   API_Entities_LicenseBasic:
     type: object
@@ -54930,6 +55160,10 @@ definitions:
       trailers:
         type: object
         example: '{ "Merged-By": "Jane Doe janedoe@gitlab.com" }'
+      extended_trailers:
+        type: object
+        example: '{ "Signed-off-by": ["John Doe <johndoe@gitlab.com>", "Jane Doe <janedoe@gitlab.com>"]
+          }'
       web_url:
         type: string
         example: https://gitlab.example.com/janedoe/gitlab-foss/-/commit/ed899a2f4b50b4370feeea94676502b42383c746
@@ -55652,6 +55886,8 @@ definitions:
         type: string
       allow_pipeline_trigger_approve_deployment:
         type: boolean
+      prevent_merge_without_jira_issue:
+        type: string
       permissions:
         type: object
         properties:
@@ -55837,6 +56073,9 @@ definitions:
       destination_storage_name:
         type: string
         example: storage1
+      error_message:
+        type: string
+        example: Failed to move repository
       project:
         "$ref": "#/definitions/API_Entities_ProjectIdentity"
     description: API_Entities_Projects_RepositoryStorageMove model
@@ -59469,6 +59708,8 @@ definitions:
         type: string
       created_by:
         "$ref": "#/definitions/API_Entities_UserBasic"
+      email_reset_offered_at:
+        type: string
       using_license_seat:
         type: string
       is_auditor:
@@ -60122,6 +60363,16 @@ definitions:
     properties:
       name:
         type: string
+  EE_API_Entities_Geo_PipelineRefs:
+    type: object
+    properties:
+      pipeline_refs:
+        type: array
+        items:
+          type: string
+          example:
+          - refs/pipelines/1
+    description: EE_API_Entities_Geo_PipelineRefs model
   API_Entities_BasicSuccess:
     type: object
     properties:
@@ -60280,6 +60531,10 @@ definitions:
         type: string
         format: date
         example: '2022-06-18'
+      end_date:
+        type: string
+        format: date
+        example: '2022-06-18'
       plan:
         type: string
         example: default
@@ -60428,6 +60683,9 @@ definitions:
       destination_storage_name:
         type: string
         example: storage1
+      error_message:
+        type: string
+        example: Failed to move repository
       snippet:
         "$ref": "#/definitions/API_Entities_BasicSnippet"
     description: API_Entities_Snippets_RepositoryStorageMove model
@@ -60660,6 +60918,8 @@ definitions:
       show_whitespace_in_diffs:
         type: string
       pass_user_identities_to_ci_jwt:
+        type: string
+      code_suggestions:
         type: string
     description: API_Entities_UserPreferences model
   API_Entities_UserCreditCardValidations:

@@ -297,6 +297,11 @@ var PostApiV4GeoProxyGitSshUploadPack EndpointPattern = EndpointPattern{
 	Method:  "POST",
 }
 
+var GetApiV4GeoRepositoriesPipelineRefsByGlRepository EndpointPattern = EndpointPattern{
+	Pattern: "/api/v4/geo/repositories/{gl_repository}/pipeline_refs",
+	Method:  "GET",
+}
+
 var GetApiV4GeoRetrieveByReplicableNameByReplicableId EndpointPattern = EndpointPattern{
 	Pattern: "/api/v4/geo/retrieve/{replicable_name}/{replicable_id}",
 	Method:  "GET",
@@ -494,6 +499,11 @@ var GetApiV4GroupsPackagesNugetMetadataIndexByIdByPackageName EndpointPattern = 
 
 var GetApiV4GroupsPackagesNugetQueryById EndpointPattern = EndpointPattern{
 	Pattern: "/api/v4/groups/{id}/-/packages/nuget/query",
+	Method:  "GET",
+}
+
+var GetApiV4GroupsPackagesNugetSymbolfilesFileNameSignatureSameFileNameById EndpointPattern = EndpointPattern{
+	Pattern: "/api/v4/groups/{id}/-/packages/nuget/symbolfiles/*file_name/*signature/*same_file_name",
 	Method:  "GET",
 }
 
@@ -919,6 +929,11 @@ var PostApiV4GroupsTransferById EndpointPattern = EndpointPattern{
 
 var GetApiV4GroupsTransferLocationsById EndpointPattern = EndpointPattern{
 	Pattern: "/api/v4/groups/{id}/transfer_locations",
+	Method:  "GET",
+}
+
+var GetApiV4GroupsUsersById EndpointPattern = EndpointPattern{
+	Pattern: "/api/v4/groups/{id}/users",
 	Method:  "GET",
 }
 
@@ -2232,11 +2247,6 @@ var PutApiV4ProjectsIntegrationsRedmineById EndpointPattern = EndpointPattern{
 	Method:  "PUT",
 }
 
-var PutApiV4ProjectsIntegrationsShimoById EndpointPattern = EndpointPattern{
-	Pattern: "/api/v4/projects/{id}/integrations/shimo",
-	Method:  "PUT",
-}
-
 var PutApiV4ProjectsIntegrationsSlackById EndpointPattern = EndpointPattern{
 	Pattern: "/api/v4/projects/{id}/integrations/slack",
 	Method:  "PUT",
@@ -3149,6 +3159,11 @@ var GetApiV4ProjectsPackagesNugetMetadataIndexByIdByPackageName EndpointPattern 
 
 var GetApiV4ProjectsPackagesNugetQueryById EndpointPattern = EndpointPattern{
 	Pattern: "/api/v4/projects/{id}/packages/nuget/query",
+	Method:  "GET",
+}
+
+var GetApiV4ProjectsPackagesNugetSymbolfilesFileNameSignatureSameFileNameById EndpointPattern = EndpointPattern{
+	Pattern: "/api/v4/projects/{id}/packages/nuget/symbolfiles/*file_name/*signature/*same_file_name",
 	Method:  "GET",
 }
 
@@ -4104,11 +4119,6 @@ var PutApiV4ProjectsServicesPushoverById EndpointPattern = EndpointPattern{
 
 var PutApiV4ProjectsServicesRedmineById EndpointPattern = EndpointPattern{
 	Pattern: "/api/v4/projects/{id}/services/redmine",
-	Method:  "PUT",
-}
-
-var PutApiV4ProjectsServicesShimoById EndpointPattern = EndpointPattern{
-	Pattern: "/api/v4/projects/{id}/services/shimo",
 	Method:  "PUT",
 }
 

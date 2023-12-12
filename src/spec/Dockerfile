@@ -1,5 +1,5 @@
 FROM ruby:latest
 
-RUN apt-get update; \
-    apt install cmake; \
-    apt install nodejs
+RUN apt-get update -y; \
+    apt install cmake -y; \
+    apt install nodejs -y
