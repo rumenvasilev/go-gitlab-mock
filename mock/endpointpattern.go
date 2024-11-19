@@ -127,6 +127,11 @@ var DeleteApiV4ApplicationsById EndpointPattern = EndpointPattern{
 	Method:  "DELETE",
 }
 
+var PostApiV4ApplicationsRenewSecretById EndpointPattern = EndpointPattern{
+	Pattern: "/api/v4/applications/{id}/renew-secret",
+	Method:  "POST",
+}
+
 var GetApiV4Avatar EndpointPattern = EndpointPattern{
 	Pattern: "/api/v4/avatar",
 	Method:  "GET",
@@ -177,6 +182,11 @@ var GetApiV4BulkImportsByImportId EndpointPattern = EndpointPattern{
 	Method:  "GET",
 }
 
+var PostApiV4BulkImportsCancelByImportId EndpointPattern = EndpointPattern{
+	Pattern: "/api/v4/bulk_imports/{import_id}/cancel",
+	Method:  "POST",
+}
+
 var GetApiV4BulkImportsEntitiesByImportId EndpointPattern = EndpointPattern{
 	Pattern: "/api/v4/bulk_imports/{import_id}/entities",
 	Method:  "GET",
@@ -192,11 +202,6 @@ var GetApiV4BulkImportsEntitiesFailuresByImportIdByEntityId EndpointPattern = En
 	Method:  "GET",
 }
 
-var PostApiV4ClustersMetricsDashboardAnnotationsById EndpointPattern = EndpointPattern{
-	Pattern: "/api/v4/clusters/{id}/metrics_dashboard/annotations",
-	Method:  "POST",
-}
-
 var PostApiV4ContainerRegistryEventEvents EndpointPattern = EndpointPattern{
 	Pattern: "/api/v4/container_registry_event/events",
 	Method:  "POST",
@@ -207,14 +212,14 @@ var GetApiV4DeployKeys EndpointPattern = EndpointPattern{
 	Method:  "GET",
 }
 
+var PostApiV4DeployKeys EndpointPattern = EndpointPattern{
+	Pattern: "/api/v4/deploy_keys",
+	Method:  "POST",
+}
+
 var GetApiV4DeployTokens EndpointPattern = EndpointPattern{
 	Pattern: "/api/v4/deploy_tokens",
 	Method:  "GET",
-}
-
-var PostApiV4EnvironmentsMetricsDashboardAnnotationsById EndpointPattern = EndpointPattern{
-	Pattern: "/api/v4/environments/{id}/metrics_dashboard/annotations",
-	Method:  "POST",
 }
 
 var GetApiV4Events EndpointPattern = EndpointPattern{
@@ -632,6 +637,11 @@ var DeleteApiV4GroupsBillableMembersByIdByUserId EndpointPattern = EndpointPatte
 	Method:  "DELETE",
 }
 
+var GetApiV4GroupsBillableMembersIndirectByIdByUserId EndpointPattern = EndpointPattern{
+	Pattern: "/api/v4/groups/{id}/billable_members/{user_id}/indirect",
+	Method:  "GET",
+}
+
 var GetApiV4GroupsBillableMembersMembershipsByIdByUserId EndpointPattern = EndpointPattern{
 	Pattern: "/api/v4/groups/{id}/billable_members/{user_id}/memberships",
 	Method:  "GET",
@@ -737,6 +747,11 @@ var GetApiV4GroupsExportRelationsStatusById EndpointPattern = EndpointPattern{
 	Method:  "GET",
 }
 
+var GetApiV4GroupsGroupsSharedById EndpointPattern = EndpointPattern{
+	Pattern: "/api/v4/groups/{id}/groups/shared",
+	Method:  "GET",
+}
+
 var GetApiV4GroupsInvitationsById EndpointPattern = EndpointPattern{
 	Pattern: "/api/v4/groups/{id}/invitations",
 	Method:  "GET",
@@ -755,6 +770,11 @@ var DeleteApiV4GroupsInvitationsByIdByEmail EndpointPattern = EndpointPattern{
 var PutApiV4GroupsInvitationsByIdByEmail EndpointPattern = EndpointPattern{
 	Pattern: "/api/v4/groups/{id}/invitations/{email}",
 	Method:  "PUT",
+}
+
+var GetApiV4GroupsInvitedGroupsById EndpointPattern = EndpointPattern{
+	Pattern: "/api/v4/groups/{id}/invited_groups",
+	Method:  "GET",
 }
 
 var GetApiV4GroupsIssuesById EndpointPattern = EndpointPattern{
@@ -922,6 +942,11 @@ var GetApiV4GroupsSubgroupsById EndpointPattern = EndpointPattern{
 	Method:  "GET",
 }
 
+var PostApiV4GroupsTokensRevokeById EndpointPattern = EndpointPattern{
+	Pattern: "/api/v4/groups/{id}/tokens/revoke",
+	Method:  "POST",
+}
+
 var PostApiV4GroupsTransferById EndpointPattern = EndpointPattern{
 	Pattern: "/api/v4/groups/{id}/transfer",
 	Method:  "POST",
@@ -929,6 +954,31 @@ var PostApiV4GroupsTransferById EndpointPattern = EndpointPattern{
 
 var GetApiV4GroupsTransferLocationsById EndpointPattern = EndpointPattern{
 	Pattern: "/api/v4/groups/{id}/transfer_locations",
+	Method:  "GET",
+}
+
+var GetApiV4GroupsUploadsById EndpointPattern = EndpointPattern{
+	Pattern: "/api/v4/groups/{id}/uploads",
+	Method:  "GET",
+}
+
+var DeleteApiV4GroupsUploadsByIdBySecretByFilename EndpointPattern = EndpointPattern{
+	Pattern: "/api/v4/groups/{id}/uploads/{secret}/{filename}",
+	Method:  "DELETE",
+}
+
+var GetApiV4GroupsUploadsByIdBySecretByFilename EndpointPattern = EndpointPattern{
+	Pattern: "/api/v4/groups/{id}/uploads/{secret}/{filename}",
+	Method:  "GET",
+}
+
+var DeleteApiV4GroupsUploadsByIdByUploadId EndpointPattern = EndpointPattern{
+	Pattern: "/api/v4/groups/{id}/uploads/{upload_id}",
+	Method:  "DELETE",
+}
+
+var GetApiV4GroupsUploadsByIdByUploadId EndpointPattern = EndpointPattern{
+	Pattern: "/api/v4/groups/{id}/uploads/{upload_id}",
 	Method:  "GET",
 }
 
@@ -1022,6 +1072,16 @@ var PutApiV4HooksByHookId EndpointPattern = EndpointPattern{
 	Method:  "PUT",
 }
 
+var DeleteApiV4HooksCustomHeadersByHookIdByKey EndpointPattern = EndpointPattern{
+	Pattern: "/api/v4/hooks/{hook_id}/custom_headers/{key}",
+	Method:  "DELETE",
+}
+
+var PutApiV4HooksCustomHeadersByHookIdByKey EndpointPattern = EndpointPattern{
+	Pattern: "/api/v4/hooks/{hook_id}/custom_headers/{key}",
+	Method:  "PUT",
+}
+
 var DeleteApiV4HooksUrlVariablesByHookIdByKey EndpointPattern = EndpointPattern{
 	Pattern: "/api/v4/hooks/{hook_id}/url_variables/{key}",
 	Method:  "DELETE",
@@ -1030,6 +1090,11 @@ var DeleteApiV4HooksUrlVariablesByHookIdByKey EndpointPattern = EndpointPattern{
 var PutApiV4HooksUrlVariablesByHookIdByKey EndpointPattern = EndpointPattern{
 	Pattern: "/api/v4/hooks/{hook_id}/url_variables/{key}",
 	Method:  "PUT",
+}
+
+var PostApiV4ImportBitbucket EndpointPattern = EndpointPattern{
+	Pattern: "/api/v4/import/bitbucket",
+	Method:  "POST",
 }
 
 var PostApiV4ImportBitbucketServer EndpointPattern = EndpointPattern{
@@ -1182,16 +1247,6 @@ var GetApiV4NamespacesGitlabSubscriptionById EndpointPattern = EndpointPattern{
 	Method:  "GET",
 }
 
-var PostApiV4NamespacesGitlabSubscriptionById EndpointPattern = EndpointPattern{
-	Pattern: "/api/v4/namespaces/{id}/gitlab_subscription",
-	Method:  "POST",
-}
-
-var PutApiV4NamespacesGitlabSubscriptionById EndpointPattern = EndpointPattern{
-	Pattern: "/api/v4/namespaces/{id}/gitlab_subscription",
-	Method:  "PUT",
-}
-
 var DeleteApiV4NamespacesStorageLimitExclusionById EndpointPattern = EndpointPattern{
 	Pattern: "/api/v4/namespaces/{id}/storage/limit_exclusion",
 	Method:  "DELETE",
@@ -1199,6 +1254,11 @@ var DeleteApiV4NamespacesStorageLimitExclusionById EndpointPattern = EndpointPat
 
 var PostApiV4NamespacesStorageLimitExclusionById EndpointPattern = EndpointPattern{
 	Pattern: "/api/v4/namespaces/{id}/storage/limit_exclusion",
+	Method:  "POST",
+}
+
+var PostApiV4Organizations EndpointPattern = EndpointPattern{
+	Pattern: "/api/v4/organizations",
 	Method:  "POST",
 }
 
@@ -1382,6 +1442,16 @@ var GetApiV4PersonalAccessTokensSelf EndpointPattern = EndpointPattern{
 	Method:  "GET",
 }
 
+var GetApiV4PersonalAccessTokensSelfAssociations EndpointPattern = EndpointPattern{
+	Pattern: "/api/v4/personal_access_tokens/self/associations",
+	Method:  "GET",
+}
+
+var PostApiV4PersonalAccessTokensSelfRotate EndpointPattern = EndpointPattern{
+	Pattern: "/api/v4/personal_access_tokens/self/rotate",
+	Method:  "POST",
+}
+
 var DeleteApiV4PersonalAccessTokensById EndpointPattern = EndpointPattern{
 	Pattern: "/api/v4/personal_access_tokens/{id}",
 	Method:  "DELETE",
@@ -1424,6 +1494,16 @@ var PostApiV4Projects EndpointPattern = EndpointPattern{
 
 var PostApiV4ProjectsImport EndpointPattern = EndpointPattern{
 	Pattern: "/api/v4/projects/import",
+	Method:  "POST",
+}
+
+var PostApiV4ProjectsImportRelation EndpointPattern = EndpointPattern{
+	Pattern: "/api/v4/projects/import-relation",
+	Method:  "POST",
+}
+
+var PostApiV4ProjectsImportRelationAuthorize EndpointPattern = EndpointPattern{
+	Pattern: "/api/v4/projects/import-relation/authorize",
 	Method:  "POST",
 }
 
@@ -1557,6 +1637,11 @@ var GetApiV4ProjectsAuditEventsByIdByAuditEventId EndpointPattern = EndpointPatt
 	Method:  "GET",
 }
 
+var GetApiV4ProjectsAvatarById EndpointPattern = EndpointPattern{
+	Pattern: "/api/v4/projects/{id}/avatar",
+	Method:  "GET",
+}
+
 var GetApiV4ProjectsBadgesById EndpointPattern = EndpointPattern{
 	Pattern: "/api/v4/projects/{id}/badges",
 	Method:  "GET",
@@ -1585,6 +1670,11 @@ var GetApiV4ProjectsBadgesByIdByBadgeId EndpointPattern = EndpointPattern{
 var PutApiV4ProjectsBadgesByIdByBadgeId EndpointPattern = EndpointPattern{
 	Pattern: "/api/v4/projects/{id}/badges/{badge_id}",
 	Method:  "PUT",
+}
+
+var PostApiV4ProjectsCatalogPublishById EndpointPattern = EndpointPattern{
+	Pattern: "/api/v4/projects/{id}/catalog/publish",
+	Method:  "POST",
 }
 
 var GetApiV4ProjectsCiLintById EndpointPattern = EndpointPattern{
@@ -2032,6 +2122,31 @@ var PutApiV4ProjectsHooksByIdByHookId EndpointPattern = EndpointPattern{
 	Method:  "PUT",
 }
 
+var DeleteApiV4ProjectsHooksCustomHeadersByIdByHookIdByKey EndpointPattern = EndpointPattern{
+	Pattern: "/api/v4/projects/{id}/hooks/{hook_id}/custom_headers/{key}",
+	Method:  "DELETE",
+}
+
+var PutApiV4ProjectsHooksCustomHeadersByIdByHookIdByKey EndpointPattern = EndpointPattern{
+	Pattern: "/api/v4/projects/{id}/hooks/{hook_id}/custom_headers/{key}",
+	Method:  "PUT",
+}
+
+var GetApiV4ProjectsHooksEventsByIdByHookId EndpointPattern = EndpointPattern{
+	Pattern: "/api/v4/projects/{id}/hooks/{hook_id}/events",
+	Method:  "GET",
+}
+
+var PostApiV4ProjectsHooksEventsResendByIdByHookIdByHookLogId EndpointPattern = EndpointPattern{
+	Pattern: "/api/v4/projects/{id}/hooks/{hook_id}/events/{hook_log_id}/resend",
+	Method:  "POST",
+}
+
+var PostApiV4ProjectsHooksTestByIdByHookIdByTrigger EndpointPattern = EndpointPattern{
+	Pattern: "/api/v4/projects/{id}/hooks/{hook_id}/test/{trigger}",
+	Method:  "POST",
+}
+
 var DeleteApiV4ProjectsHooksUrlVariablesByIdByHookIdByKey EndpointPattern = EndpointPattern{
 	Pattern: "/api/v4/projects/{id}/hooks/{hook_id}/url_variables/{key}",
 	Method:  "DELETE",
@@ -2117,6 +2232,11 @@ var PutApiV4ProjectsIntegrationsDatadogById EndpointPattern = EndpointPattern{
 	Method:  "PUT",
 }
 
+var PutApiV4ProjectsIntegrationsDiffblueCoverById EndpointPattern = EndpointPattern{
+	Pattern: "/api/v4/projects/{id}/integrations/diffblue-cover",
+	Method:  "PUT",
+}
+
 var PutApiV4ProjectsIntegrationsDiscordById EndpointPattern = EndpointPattern{
 	Pattern: "/api/v4/projects/{id}/integrations/discord",
 	Method:  "PUT",
@@ -2142,8 +2262,28 @@ var PutApiV4ProjectsIntegrationsExternalWikiById EndpointPattern = EndpointPatte
 	Method:  "PUT",
 }
 
+var PutApiV4ProjectsIntegrationsGitGuardianById EndpointPattern = EndpointPattern{
+	Pattern: "/api/v4/projects/{id}/integrations/git-guardian",
+	Method:  "PUT",
+}
+
 var PutApiV4ProjectsIntegrationsGithubById EndpointPattern = EndpointPattern{
 	Pattern: "/api/v4/projects/{id}/integrations/github",
+	Method:  "PUT",
+}
+
+var PutApiV4ProjectsIntegrationsGitlabSlackApplicationById EndpointPattern = EndpointPattern{
+	Pattern: "/api/v4/projects/{id}/integrations/gitlab-slack-application",
+	Method:  "PUT",
+}
+
+var PutApiV4ProjectsIntegrationsGoogleCloudPlatformArtifactRegistryById EndpointPattern = EndpointPattern{
+	Pattern: "/api/v4/projects/{id}/integrations/google-cloud-platform-artifact-registry",
+	Method:  "PUT",
+}
+
+var PutApiV4ProjectsIntegrationsGoogleCloudPlatformWorkloadIdentityFederationById EndpointPattern = EndpointPattern{
+	Pattern: "/api/v4/projects/{id}/integrations/google-cloud-platform-workload-identity-federation",
 	Method:  "PUT",
 }
 
@@ -2177,6 +2317,16 @@ var PutApiV4ProjectsIntegrationsJiraById EndpointPattern = EndpointPattern{
 	Method:  "PUT",
 }
 
+var PutApiV4ProjectsIntegrationsJiraCloudAppById EndpointPattern = EndpointPattern{
+	Pattern: "/api/v4/projects/{id}/integrations/jira-cloud-app",
+	Method:  "PUT",
+}
+
+var PutApiV4ProjectsIntegrationsMatrixById EndpointPattern = EndpointPattern{
+	Pattern: "/api/v4/projects/{id}/integrations/matrix",
+	Method:  "PUT",
+}
+
 var PutApiV4ProjectsIntegrationsMattermostById EndpointPattern = EndpointPattern{
 	Pattern: "/api/v4/projects/{id}/integrations/mattermost",
 	Method:  "PUT",
@@ -2202,11 +2352,6 @@ var PutApiV4ProjectsIntegrationsMockCiById EndpointPattern = EndpointPattern{
 	Method:  "PUT",
 }
 
-var PutApiV4ProjectsIntegrationsMockDeploymentById EndpointPattern = EndpointPattern{
-	Pattern: "/api/v4/projects/{id}/integrations/mock-deployment",
-	Method:  "PUT",
-}
-
 var PutApiV4ProjectsIntegrationsMockMonitoringById EndpointPattern = EndpointPattern{
 	Pattern: "/api/v4/projects/{id}/integrations/mock-monitoring",
 	Method:  "PUT",
@@ -2214,6 +2359,11 @@ var PutApiV4ProjectsIntegrationsMockMonitoringById EndpointPattern = EndpointPat
 
 var PutApiV4ProjectsIntegrationsPackagistById EndpointPattern = EndpointPattern{
 	Pattern: "/api/v4/projects/{id}/integrations/packagist",
+	Method:  "PUT",
+}
+
+var PutApiV4ProjectsIntegrationsPhorgeById EndpointPattern = EndpointPattern{
+	Pattern: "/api/v4/projects/{id}/integrations/phorge",
 	Method:  "PUT",
 }
 
@@ -2325,6 +2475,11 @@ var DeleteApiV4ProjectsInvitationsByIdByEmail EndpointPattern = EndpointPattern{
 var PutApiV4ProjectsInvitationsByIdByEmail EndpointPattern = EndpointPattern{
 	Pattern: "/api/v4/projects/{id}/invitations/{email}",
 	Method:  "PUT",
+}
+
+var GetApiV4ProjectsInvitedGroupsById EndpointPattern = EndpointPattern{
+	Pattern: "/api/v4/projects/{id}/invited_groups",
+	Method:  "GET",
 }
 
 var GetApiV4ProjectsIssuesById EndpointPattern = EndpointPattern{
@@ -2494,6 +2649,21 @@ var PostApiV4ProjectsJobTokenScopeAllowlistById EndpointPattern = EndpointPatter
 
 var DeleteApiV4ProjectsJobTokenScopeAllowlistByIdByTargetProjectId EndpointPattern = EndpointPattern{
 	Pattern: "/api/v4/projects/{id}/job_token_scope/allowlist/{target_project_id}",
+	Method:  "DELETE",
+}
+
+var GetApiV4ProjectsJobTokenScopeGroupsAllowlistById EndpointPattern = EndpointPattern{
+	Pattern: "/api/v4/projects/{id}/job_token_scope/groups_allowlist",
+	Method:  "GET",
+}
+
+var PostApiV4ProjectsJobTokenScopeGroupsAllowlistById EndpointPattern = EndpointPattern{
+	Pattern: "/api/v4/projects/{id}/job_token_scope/groups_allowlist",
+	Method:  "POST",
+}
+
+var DeleteApiV4ProjectsJobTokenScopeGroupsAllowlistByIdByTargetGroupId EndpointPattern = EndpointPattern{
+	Pattern: "/api/v4/projects/{id}/job_token_scope/groups_allowlist/{target_group_id}",
 	Method:  "DELETE",
 }
 
@@ -2767,6 +2937,11 @@ var PutApiV4ProjectsMergeRequestsRebaseByIdByMergeRequestIid EndpointPattern = E
 	Method:  "PUT",
 }
 
+var GetApiV4ProjectsMergeRequestsRelatedIssuesByIdByMergeRequestIid EndpointPattern = EndpointPattern{
+	Pattern: "/api/v4/projects/{id}/merge_requests/{merge_request_iid}/related_issues",
+	Method:  "GET",
+}
+
 var PutApiV4ProjectsMergeRequestsResetApprovalsByIdByMergeRequestIid EndpointPattern = EndpointPattern{
 	Pattern: "/api/v4/projects/{id}/merge_requests/{merge_request_iid}/reset_approvals",
 	Method:  "PUT",
@@ -2810,16 +2985,6 @@ var GetApiV4ProjectsMergeRequestsVersionsByIdByMergeRequestIid EndpointPattern =
 var GetApiV4ProjectsMergeRequestsVersionsByIdByMergeRequestIidByVersionId EndpointPattern = EndpointPattern{
 	Pattern: "/api/v4/projects/{id}/merge_requests/{merge_request_iid}/versions/{version_id}",
 	Method:  "GET",
-}
-
-var DeleteApiV4ProjectsMetricsUserStarredDashboardsById EndpointPattern = EndpointPattern{
-	Pattern: "/api/v4/projects/{id}/metrics/user_starred_dashboards",
-	Method:  "DELETE",
-}
-
-var PostApiV4ProjectsMetricsUserStarredDashboardsById EndpointPattern = EndpointPattern{
-	Pattern: "/api/v4/projects/{id}/metrics/user_starred_dashboards",
-	Method:  "POST",
 }
 
 var GetApiV4ProjectsPackagesById EndpointPattern = EndpointPattern{
@@ -2992,18 +3157,18 @@ var PutApiV4ProjectsPackagesDebianAuthorizeByIdByFileName EndpointPattern = Endp
 	Method:  "PUT",
 }
 
-var GetApiV4ProjectsPackagesGenericByIdByPackageNameByPackageVersionByFileName EndpointPattern = EndpointPattern{
-	Pattern: "/api/v4/projects/{id}/packages/generic/{package_name}/{package_version:.+}/{file_name}",
+var GetApiV4ProjectsPackagesGenericPackageVersionPathByIdByPackageNameByFileName EndpointPattern = EndpointPattern{
+	Pattern: "/api/v4/projects/{id}/packages/generic/{package_name}/*package_version/(*path/){file_name}",
 	Method:  "GET",
 }
 
-var PutApiV4ProjectsPackagesGenericByIdByPackageNameByPackageVersionByFileName EndpointPattern = EndpointPattern{
-	Pattern: "/api/v4/projects/{id}/packages/generic/{package_name}/{package_version:.+}/{file_name}",
+var PutApiV4ProjectsPackagesGenericPackageVersionPathByIdByPackageNameByFileName EndpointPattern = EndpointPattern{
+	Pattern: "/api/v4/projects/{id}/packages/generic/{package_name}/*package_version/(*path/){file_name}",
 	Method:  "PUT",
 }
 
-var PutApiV4ProjectsPackagesGenericAuthorizeByIdByPackageNameByPackageVersionByFileName EndpointPattern = EndpointPattern{
-	Pattern: "/api/v4/projects/{id}/packages/generic/{package_name}/{package_version:.+}/{file_name}/authorize",
+var PutApiV4ProjectsPackagesGenericPackageVersionPathAuthorizeByIdByPackageNameByFileName EndpointPattern = EndpointPattern{
+	Pattern: "/api/v4/projects/{id}/packages/generic/{package_name}/*package_version/(*path/){file_name}/authorize",
 	Method:  "PUT",
 }
 
@@ -3062,18 +3227,18 @@ var PutApiV4ProjectsPackagesMavenAuthorizeByIdByPathByFileName EndpointPattern =
 	Method:  "PUT",
 }
 
-var GetApiV4ProjectsPackagesMlModelsByIdByModelNameByModelVersionByFileName EndpointPattern = EndpointPattern{
-	Pattern: "/api/v4/projects/{id}/packages/ml_models/{model_name}/{model_version:.+}/{file_name}",
+var GetApiV4ProjectsPackagesMlModelsFilesPathByIdByModelVersionIdByFileName EndpointPattern = EndpointPattern{
+	Pattern: "/api/v4/projects/{id}/packages/ml_models/{model_version_id}/files/(*path/){file_name}",
 	Method:  "GET",
 }
 
-var PutApiV4ProjectsPackagesMlModelsByIdByModelNameByModelVersionByFileName EndpointPattern = EndpointPattern{
-	Pattern: "/api/v4/projects/{id}/packages/ml_models/{model_name}/{model_version:.+}/{file_name}",
+var PutApiV4ProjectsPackagesMlModelsFilesPathByIdByModelVersionIdByFileName EndpointPattern = EndpointPattern{
+	Pattern: "/api/v4/projects/{id}/packages/ml_models/{model_version_id}/files/(*path/){file_name}",
 	Method:  "PUT",
 }
 
-var PutApiV4ProjectsPackagesMlModelsAuthorizeByIdByModelNameByModelVersionByFileName EndpointPattern = EndpointPattern{
-	Pattern: "/api/v4/projects/{id}/packages/ml_models/{model_name}/{model_version:.+}/{file_name}/authorize",
+var PutApiV4ProjectsPackagesMlModelsFilesPathAuthorizeByIdByModelVersionIdByFileName EndpointPattern = EndpointPattern{
+	Pattern: "/api/v4/projects/{id}/packages/ml_models/{model_version_id}/files/(*path/){file_name}/authorize",
 	Method:  "PUT",
 }
 
@@ -3197,6 +3362,26 @@ var PutApiV4ProjectsPackagesNugetV2AuthorizeById EndpointPattern = EndpointPatte
 	Method:  "PUT",
 }
 
+var GetApiV4ProjectsPackagesProtectionRulesById EndpointPattern = EndpointPattern{
+	Pattern: "/api/v4/projects/{id}/packages/protection/rules",
+	Method:  "GET",
+}
+
+var PostApiV4ProjectsPackagesProtectionRulesById EndpointPattern = EndpointPattern{
+	Pattern: "/api/v4/projects/{id}/packages/protection/rules",
+	Method:  "POST",
+}
+
+var DeleteApiV4ProjectsPackagesProtectionRulesByIdByPackageProtectionRuleId EndpointPattern = EndpointPattern{
+	Pattern: "/api/v4/projects/{id}/packages/protection/rules/{package_protection_rule_id}",
+	Method:  "DELETE",
+}
+
+var PatchApiV4ProjectsPackagesProtectionRulesByIdByPackageProtectionRuleId EndpointPattern = EndpointPattern{
+	Pattern: "/api/v4/projects/{id}/packages/protection/rules/{package_protection_rule_id}",
+	Method:  "PATCH",
+}
+
 var PostApiV4ProjectsPackagesPypiById EndpointPattern = EndpointPattern{
 	Pattern: "/api/v4/projects/{id}/packages/pypi",
 	Method:  "POST",
@@ -3272,6 +3457,16 @@ var GetApiV4ProjectsPackagesRubygemsByIdByFileName EndpointPattern = EndpointPat
 	Method:  "GET",
 }
 
+var GetApiV4ProjectsPackagesTerraformModulesByIdByModuleNameByModuleSystem EndpointPattern = EndpointPattern{
+	Pattern: "/api/v4/projects/{id}/packages/terraform/modules/{module_name}/{module_system}",
+	Method:  "GET",
+}
+
+var GetApiV4ProjectsPackagesTerraformModulesModuleVersionByIdByModuleNameByModuleSystem EndpointPattern = EndpointPattern{
+	Pattern: "/api/v4/projects/{id}/packages/terraform/modules/{module_name}/{module_system}/*module_version",
+	Method:  "GET",
+}
+
 var PutApiV4ProjectsPackagesTerraformModulesFileByIdByModuleNameByModuleSystemByModuleVersion EndpointPattern = EndpointPattern{
 	Pattern: "/api/v4/projects/{id}/packages/terraform/modules/{module_name}/{module_system}/{module_version:.+}/file",
 	Method:  "PUT",
@@ -3310,6 +3505,16 @@ var GetApiV4ProjectsPackagesPipelinesByIdByPackageId EndpointPattern = EndpointP
 var DeleteApiV4ProjectsPagesById EndpointPattern = EndpointPattern{
 	Pattern: "/api/v4/projects/{id}/pages",
 	Method:  "DELETE",
+}
+
+var GetApiV4ProjectsPagesById EndpointPattern = EndpointPattern{
+	Pattern: "/api/v4/projects/{id}/pages",
+	Method:  "GET",
+}
+
+var PatchApiV4ProjectsPagesById EndpointPattern = EndpointPattern{
+	Pattern: "/api/v4/projects/{id}/pages",
+	Method:  "PATCH",
 }
 
 var GetApiV4ProjectsPagesDomainsById EndpointPattern = EndpointPattern{
@@ -3537,6 +3742,11 @@ var GetApiV4ProjectsRegistryRepositoriesTagsByIdByRepositoryIdByTagName Endpoint
 	Method:  "GET",
 }
 
+var GetApiV4ProjectsRelationImportsById EndpointPattern = EndpointPattern{
+	Pattern: "/api/v4/projects/{id}/relation-imports",
+	Method:  "GET",
+}
+
 var GetApiV4ProjectsReleasesById EndpointPattern = EndpointPattern{
 	Pattern: "/api/v4/projects/{id}/releases",
 	Method:  "GET",
@@ -3625,6 +3835,11 @@ var GetApiV4ProjectsRemoteMirrorsByIdByMirrorId EndpointPattern = EndpointPatter
 var PutApiV4ProjectsRemoteMirrorsByIdByMirrorId EndpointPattern = EndpointPattern{
 	Pattern: "/api/v4/projects/{id}/remote_mirrors/{mirror_id}",
 	Method:  "PUT",
+}
+
+var PostApiV4ProjectsRemoteMirrorsSyncByIdByMirrorId EndpointPattern = EndpointPattern{
+	Pattern: "/api/v4/projects/{id}/remote_mirrors/{mirror_id}/sync",
+	Method:  "POST",
 }
 
 var GetApiV4ProjectsRepositoryArchiveById EndpointPattern = EndpointPattern{
@@ -3735,6 +3950,11 @@ var GetApiV4ProjectsRepositoryCommitsRefsByIdBySha EndpointPattern = EndpointPat
 var PostApiV4ProjectsRepositoryCommitsRevertByIdBySha EndpointPattern = EndpointPattern{
 	Pattern: "/api/v4/projects/{id}/repository/commits/{sha}/revert",
 	Method:  "POST",
+}
+
+var GetApiV4ProjectsRepositoryCommitsSequenceByIdBySha EndpointPattern = EndpointPattern{
+	Pattern: "/api/v4/projects/{id}/repository/commits/{sha}/sequence",
+	Method:  "GET",
 }
 
 var GetApiV4ProjectsRepositoryCommitsSignatureByIdBySha EndpointPattern = EndpointPattern{
@@ -3992,6 +4212,11 @@ var PutApiV4ProjectsServicesDatadogById EndpointPattern = EndpointPattern{
 	Method:  "PUT",
 }
 
+var PutApiV4ProjectsServicesDiffblueCoverById EndpointPattern = EndpointPattern{
+	Pattern: "/api/v4/projects/{id}/services/diffblue-cover",
+	Method:  "PUT",
+}
+
 var PutApiV4ProjectsServicesDiscordById EndpointPattern = EndpointPattern{
 	Pattern: "/api/v4/projects/{id}/services/discord",
 	Method:  "PUT",
@@ -4017,8 +4242,28 @@ var PutApiV4ProjectsServicesExternalWikiById EndpointPattern = EndpointPattern{
 	Method:  "PUT",
 }
 
+var PutApiV4ProjectsServicesGitGuardianById EndpointPattern = EndpointPattern{
+	Pattern: "/api/v4/projects/{id}/services/git-guardian",
+	Method:  "PUT",
+}
+
 var PutApiV4ProjectsServicesGithubById EndpointPattern = EndpointPattern{
 	Pattern: "/api/v4/projects/{id}/services/github",
+	Method:  "PUT",
+}
+
+var PutApiV4ProjectsServicesGitlabSlackApplicationById EndpointPattern = EndpointPattern{
+	Pattern: "/api/v4/projects/{id}/services/gitlab-slack-application",
+	Method:  "PUT",
+}
+
+var PutApiV4ProjectsServicesGoogleCloudPlatformArtifactRegistryById EndpointPattern = EndpointPattern{
+	Pattern: "/api/v4/projects/{id}/services/google-cloud-platform-artifact-registry",
+	Method:  "PUT",
+}
+
+var PutApiV4ProjectsServicesGoogleCloudPlatformWorkloadIdentityFederationById EndpointPattern = EndpointPattern{
+	Pattern: "/api/v4/projects/{id}/services/google-cloud-platform-workload-identity-federation",
 	Method:  "PUT",
 }
 
@@ -4052,6 +4297,16 @@ var PutApiV4ProjectsServicesJiraById EndpointPattern = EndpointPattern{
 	Method:  "PUT",
 }
 
+var PutApiV4ProjectsServicesJiraCloudAppById EndpointPattern = EndpointPattern{
+	Pattern: "/api/v4/projects/{id}/services/jira-cloud-app",
+	Method:  "PUT",
+}
+
+var PutApiV4ProjectsServicesMatrixById EndpointPattern = EndpointPattern{
+	Pattern: "/api/v4/projects/{id}/services/matrix",
+	Method:  "PUT",
+}
+
 var PutApiV4ProjectsServicesMattermostById EndpointPattern = EndpointPattern{
 	Pattern: "/api/v4/projects/{id}/services/mattermost",
 	Method:  "PUT",
@@ -4077,11 +4332,6 @@ var PutApiV4ProjectsServicesMockCiById EndpointPattern = EndpointPattern{
 	Method:  "PUT",
 }
 
-var PutApiV4ProjectsServicesMockDeploymentById EndpointPattern = EndpointPattern{
-	Pattern: "/api/v4/projects/{id}/services/mock-deployment",
-	Method:  "PUT",
-}
-
 var PutApiV4ProjectsServicesMockMonitoringById EndpointPattern = EndpointPattern{
 	Pattern: "/api/v4/projects/{id}/services/mock-monitoring",
 	Method:  "PUT",
@@ -4089,6 +4339,11 @@ var PutApiV4ProjectsServicesMockMonitoringById EndpointPattern = EndpointPattern
 
 var PutApiV4ProjectsServicesPackagistById EndpointPattern = EndpointPattern{
 	Pattern: "/api/v4/projects/{id}/services/packagist",
+	Method:  "PUT",
+}
+
+var PutApiV4ProjectsServicesPhorgeById EndpointPattern = EndpointPattern{
+	Pattern: "/api/v4/projects/{id}/services/phorge",
 	Method:  "PUT",
 }
 
@@ -4357,6 +4612,11 @@ var PostApiV4ProjectsUnstarById EndpointPattern = EndpointPattern{
 	Method:  "POST",
 }
 
+var GetApiV4ProjectsUploadsById EndpointPattern = EndpointPattern{
+	Pattern: "/api/v4/projects/{id}/uploads",
+	Method:  "GET",
+}
+
 var PostApiV4ProjectsUploadsById EndpointPattern = EndpointPattern{
 	Pattern: "/api/v4/projects/{id}/uploads",
 	Method:  "POST",
@@ -4365,6 +4625,26 @@ var PostApiV4ProjectsUploadsById EndpointPattern = EndpointPattern{
 var PostApiV4ProjectsUploadsAuthorizeById EndpointPattern = EndpointPattern{
 	Pattern: "/api/v4/projects/{id}/uploads/authorize",
 	Method:  "POST",
+}
+
+var DeleteApiV4ProjectsUploadsByIdBySecretByFilename EndpointPattern = EndpointPattern{
+	Pattern: "/api/v4/projects/{id}/uploads/{secret}/{filename}",
+	Method:  "DELETE",
+}
+
+var GetApiV4ProjectsUploadsByIdBySecretByFilename EndpointPattern = EndpointPattern{
+	Pattern: "/api/v4/projects/{id}/uploads/{secret}/{filename}",
+	Method:  "GET",
+}
+
+var DeleteApiV4ProjectsUploadsByIdByUploadId EndpointPattern = EndpointPattern{
+	Pattern: "/api/v4/projects/{id}/uploads/{upload_id}",
+	Method:  "DELETE",
+}
+
+var GetApiV4ProjectsUploadsByIdByUploadId EndpointPattern = EndpointPattern{
+	Pattern: "/api/v4/projects/{id}/uploads/{upload_id}",
+	Method:  "GET",
 }
 
 var GetApiV4ProjectsUsersById EndpointPattern = EndpointPattern{
@@ -4504,6 +4784,11 @@ var PutApiV4RunnersById EndpointPattern = EndpointPattern{
 
 var GetApiV4RunnersJobsById EndpointPattern = EndpointPattern{
 	Pattern: "/api/v4/runners/{id}/jobs",
+	Method:  "GET",
+}
+
+var GetApiV4RunnersManagersById EndpointPattern = EndpointPattern{
+	Pattern: "/api/v4/runners/{id}/managers",
 	Method:  "GET",
 }
 
@@ -4662,14 +4947,29 @@ var GetApiV4UsageDataQueries EndpointPattern = EndpointPattern{
 	Method:  "GET",
 }
 
+var GetApiV4UsageDataServicePing EndpointPattern = EndpointPattern{
+	Pattern: "/api/v4/usage_data/service_ping",
+	Method:  "GET",
+}
+
 var PostApiV4UsageDataTrackEvent EndpointPattern = EndpointPattern{
 	Pattern: "/api/v4/usage_data/track_event",
+	Method:  "POST",
+}
+
+var PostApiV4UsageDataTrackEvents EndpointPattern = EndpointPattern{
+	Pattern: "/api/v4/usage_data/track_events",
 	Method:  "POST",
 }
 
 var GetApiV4UserActivities EndpointPattern = EndpointPattern{
 	Pattern: "/api/v4/user/activities",
 	Method:  "GET",
+}
+
+var PutApiV4UserAvatar EndpointPattern = EndpointPattern{
+	Pattern: "/api/v4/user/avatar",
+	Method:  "PUT",
 }
 
 var GetApiV4UserEmails EndpointPattern = EndpointPattern{
@@ -5024,5 +5324,10 @@ var GetApiV4UsersStatusByUserId EndpointPattern = EndpointPattern{
 
 var GetApiV4Version EndpointPattern = EndpointPattern{
 	Pattern: "/api/v4/version",
+	Method:  "GET",
+}
+
+var GetApiV4WebCommitsPublicKey EndpointPattern = EndpointPattern{
+	Pattern: "/api/v4/web_commits/public_key",
 	Method:  "GET",
 }
