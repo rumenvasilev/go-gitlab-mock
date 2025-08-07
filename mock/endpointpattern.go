@@ -2,11 +2,6 @@ package mock
 
 // Code generated; DO NOT EDIT.
 
-var GetApiV3User EndpointPattern = EndpointPattern{
-	Pattern: "/api/v3/user",
-	Method:  "GET",
-}
-
 var GetApiV4AdminBatchedBackgroundMigrations EndpointPattern = EndpointPattern{
 	Pattern: "/api/v4/admin/batched_background_migrations",
 	Method:  "GET",
@@ -219,6 +214,11 @@ var PostApiV4DeployKeys EndpointPattern = EndpointPattern{
 
 var GetApiV4DeployTokens EndpointPattern = EndpointPattern{
 	Pattern: "/api/v4/deploy_tokens",
+	Method:  "GET",
+}
+
+var GetApiV4DiscoverCertBasedClusters EndpointPattern = EndpointPattern{
+	Pattern: "/api/v4/discover-cert-based-clusters",
 	Method:  "GET",
 }
 
@@ -582,6 +582,16 @@ var PostApiV4GroupsAccessTokensRotateByIdByTokenId EndpointPattern = EndpointPat
 	Method:  "POST",
 }
 
+var PostApiV4GroupsAccessTokensSelfRotateById EndpointPattern = EndpointPattern{
+	Pattern: "/api/v4/groups/{id}/access_tokens/self/rotate",
+	Method:  "POST",
+}
+
+var PostApiV4GroupsArchiveById EndpointPattern = EndpointPattern{
+	Pattern: "/api/v4/groups/{id}/archive",
+	Method:  "POST",
+}
+
 var GetApiV4GroupsAuditEventsById EndpointPattern = EndpointPattern{
 	Pattern: "/api/v4/groups/{id}/audit_events",
 	Method:  "GET",
@@ -722,6 +732,46 @@ var GetApiV4GroupsDescendantGroupsById EndpointPattern = EndpointPattern{
 	Method:  "GET",
 }
 
+var GetApiV4GroupsEpicsAwardEmojiByIdByEpicIid EndpointPattern = EndpointPattern{
+	Pattern: "/api/v4/groups/{id}/epics/{epic_iid}/award_emoji",
+	Method:  "GET",
+}
+
+var PostApiV4GroupsEpicsAwardEmojiByIdByEpicIid EndpointPattern = EndpointPattern{
+	Pattern: "/api/v4/groups/{id}/epics/{epic_iid}/award_emoji",
+	Method:  "POST",
+}
+
+var DeleteApiV4GroupsEpicsAwardEmojiByIdByEpicIidByAwardId EndpointPattern = EndpointPattern{
+	Pattern: "/api/v4/groups/{id}/epics/{epic_iid}/award_emoji/{award_id}",
+	Method:  "DELETE",
+}
+
+var GetApiV4GroupsEpicsAwardEmojiByIdByEpicIidByAwardId EndpointPattern = EndpointPattern{
+	Pattern: "/api/v4/groups/{id}/epics/{epic_iid}/award_emoji/{award_id}",
+	Method:  "GET",
+}
+
+var GetApiV4GroupsEpicsNotesAwardEmojiByIdByEpicIidByNoteId EndpointPattern = EndpointPattern{
+	Pattern: "/api/v4/groups/{id}/epics/{epic_iid}/notes/{note_id}/award_emoji",
+	Method:  "GET",
+}
+
+var PostApiV4GroupsEpicsNotesAwardEmojiByIdByEpicIidByNoteId EndpointPattern = EndpointPattern{
+	Pattern: "/api/v4/groups/{id}/epics/{epic_iid}/notes/{note_id}/award_emoji",
+	Method:  "POST",
+}
+
+var DeleteApiV4GroupsEpicsNotesAwardEmojiByIdByEpicIidByNoteIdByAwardId EndpointPattern = EndpointPattern{
+	Pattern: "/api/v4/groups/{id}/epics/{epic_iid}/notes/{note_id}/award_emoji/{award_id}",
+	Method:  "DELETE",
+}
+
+var GetApiV4GroupsEpicsNotesAwardEmojiByIdByEpicIidByNoteIdByAwardId EndpointPattern = EndpointPattern{
+	Pattern: "/api/v4/groups/{id}/epics/{epic_iid}/notes/{note_id}/award_emoji/{award_id}",
+	Method:  "GET",
+}
+
 var PostApiV4GroupsExportById EndpointPattern = EndpointPattern{
 	Pattern: "/api/v4/groups/{id}/export",
 	Method:  "POST",
@@ -749,6 +799,281 @@ var GetApiV4GroupsExportRelationsStatusById EndpointPattern = EndpointPattern{
 
 var GetApiV4GroupsGroupsSharedById EndpointPattern = EndpointPattern{
 	Pattern: "/api/v4/groups/{id}/groups/shared",
+	Method:  "GET",
+}
+
+var GetApiV4GroupsIntegrationsById EndpointPattern = EndpointPattern{
+	Pattern: "/api/v4/groups/{id}/integrations",
+	Method:  "GET",
+}
+
+var PutApiV4GroupsIntegrationsAppleAppStoreById EndpointPattern = EndpointPattern{
+	Pattern: "/api/v4/groups/{id}/integrations/apple-app-store",
+	Method:  "PUT",
+}
+
+var PutApiV4GroupsIntegrationsAsanaById EndpointPattern = EndpointPattern{
+	Pattern: "/api/v4/groups/{id}/integrations/asana",
+	Method:  "PUT",
+}
+
+var PutApiV4GroupsIntegrationsAssemblaById EndpointPattern = EndpointPattern{
+	Pattern: "/api/v4/groups/{id}/integrations/assembla",
+	Method:  "PUT",
+}
+
+var PutApiV4GroupsIntegrationsBambooById EndpointPattern = EndpointPattern{
+	Pattern: "/api/v4/groups/{id}/integrations/bamboo",
+	Method:  "PUT",
+}
+
+var PutApiV4GroupsIntegrationsBugzillaById EndpointPattern = EndpointPattern{
+	Pattern: "/api/v4/groups/{id}/integrations/bugzilla",
+	Method:  "PUT",
+}
+
+var PutApiV4GroupsIntegrationsBuildkiteById EndpointPattern = EndpointPattern{
+	Pattern: "/api/v4/groups/{id}/integrations/buildkite",
+	Method:  "PUT",
+}
+
+var PutApiV4GroupsIntegrationsCampfireById EndpointPattern = EndpointPattern{
+	Pattern: "/api/v4/groups/{id}/integrations/campfire",
+	Method:  "PUT",
+}
+
+var PutApiV4GroupsIntegrationsClickupById EndpointPattern = EndpointPattern{
+	Pattern: "/api/v4/groups/{id}/integrations/clickup",
+	Method:  "PUT",
+}
+
+var PutApiV4GroupsIntegrationsConfluenceById EndpointPattern = EndpointPattern{
+	Pattern: "/api/v4/groups/{id}/integrations/confluence",
+	Method:  "PUT",
+}
+
+var PutApiV4GroupsIntegrationsCustomIssueTrackerById EndpointPattern = EndpointPattern{
+	Pattern: "/api/v4/groups/{id}/integrations/custom-issue-tracker",
+	Method:  "PUT",
+}
+
+var PutApiV4GroupsIntegrationsDatadogById EndpointPattern = EndpointPattern{
+	Pattern: "/api/v4/groups/{id}/integrations/datadog",
+	Method:  "PUT",
+}
+
+var PutApiV4GroupsIntegrationsDiffblueCoverById EndpointPattern = EndpointPattern{
+	Pattern: "/api/v4/groups/{id}/integrations/diffblue-cover",
+	Method:  "PUT",
+}
+
+var PutApiV4GroupsIntegrationsDiscordById EndpointPattern = EndpointPattern{
+	Pattern: "/api/v4/groups/{id}/integrations/discord",
+	Method:  "PUT",
+}
+
+var PutApiV4GroupsIntegrationsDroneCiById EndpointPattern = EndpointPattern{
+	Pattern: "/api/v4/groups/{id}/integrations/drone-ci",
+	Method:  "PUT",
+}
+
+var PutApiV4GroupsIntegrationsEmailsOnPushById EndpointPattern = EndpointPattern{
+	Pattern: "/api/v4/groups/{id}/integrations/emails-on-push",
+	Method:  "PUT",
+}
+
+var PutApiV4GroupsIntegrationsEwmById EndpointPattern = EndpointPattern{
+	Pattern: "/api/v4/groups/{id}/integrations/ewm",
+	Method:  "PUT",
+}
+
+var PutApiV4GroupsIntegrationsExternalWikiById EndpointPattern = EndpointPattern{
+	Pattern: "/api/v4/groups/{id}/integrations/external-wiki",
+	Method:  "PUT",
+}
+
+var PutApiV4GroupsIntegrationsGitGuardianById EndpointPattern = EndpointPattern{
+	Pattern: "/api/v4/groups/{id}/integrations/git-guardian",
+	Method:  "PUT",
+}
+
+var PutApiV4GroupsIntegrationsGithubById EndpointPattern = EndpointPattern{
+	Pattern: "/api/v4/groups/{id}/integrations/github",
+	Method:  "PUT",
+}
+
+var PutApiV4GroupsIntegrationsGitlabSlackApplicationById EndpointPattern = EndpointPattern{
+	Pattern: "/api/v4/groups/{id}/integrations/gitlab-slack-application",
+	Method:  "PUT",
+}
+
+var PutApiV4GroupsIntegrationsGoogleCloudPlatformArtifactRegistryById EndpointPattern = EndpointPattern{
+	Pattern: "/api/v4/groups/{id}/integrations/google-cloud-platform-artifact-registry",
+	Method:  "PUT",
+}
+
+var PutApiV4GroupsIntegrationsGoogleCloudPlatformWorkloadIdentityFederationById EndpointPattern = EndpointPattern{
+	Pattern: "/api/v4/groups/{id}/integrations/google-cloud-platform-workload-identity-federation",
+	Method:  "PUT",
+}
+
+var PutApiV4GroupsIntegrationsGooglePlayById EndpointPattern = EndpointPattern{
+	Pattern: "/api/v4/groups/{id}/integrations/google-play",
+	Method:  "PUT",
+}
+
+var PutApiV4GroupsIntegrationsHangoutsChatById EndpointPattern = EndpointPattern{
+	Pattern: "/api/v4/groups/{id}/integrations/hangouts-chat",
+	Method:  "PUT",
+}
+
+var PutApiV4GroupsIntegrationsHarborById EndpointPattern = EndpointPattern{
+	Pattern: "/api/v4/groups/{id}/integrations/harbor",
+	Method:  "PUT",
+}
+
+var PutApiV4GroupsIntegrationsIrkerById EndpointPattern = EndpointPattern{
+	Pattern: "/api/v4/groups/{id}/integrations/irker",
+	Method:  "PUT",
+}
+
+var PutApiV4GroupsIntegrationsJenkinsById EndpointPattern = EndpointPattern{
+	Pattern: "/api/v4/groups/{id}/integrations/jenkins",
+	Method:  "PUT",
+}
+
+var PutApiV4GroupsIntegrationsJiraById EndpointPattern = EndpointPattern{
+	Pattern: "/api/v4/groups/{id}/integrations/jira",
+	Method:  "PUT",
+}
+
+var PutApiV4GroupsIntegrationsJiraCloudAppById EndpointPattern = EndpointPattern{
+	Pattern: "/api/v4/groups/{id}/integrations/jira-cloud-app",
+	Method:  "PUT",
+}
+
+var PutApiV4GroupsIntegrationsLinearById EndpointPattern = EndpointPattern{
+	Pattern: "/api/v4/groups/{id}/integrations/linear",
+	Method:  "PUT",
+}
+
+var PutApiV4GroupsIntegrationsMatrixById EndpointPattern = EndpointPattern{
+	Pattern: "/api/v4/groups/{id}/integrations/matrix",
+	Method:  "PUT",
+}
+
+var PutApiV4GroupsIntegrationsMattermostById EndpointPattern = EndpointPattern{
+	Pattern: "/api/v4/groups/{id}/integrations/mattermost",
+	Method:  "PUT",
+}
+
+var PutApiV4GroupsIntegrationsMattermostSlashCommandsById EndpointPattern = EndpointPattern{
+	Pattern: "/api/v4/groups/{id}/integrations/mattermost-slash-commands",
+	Method:  "PUT",
+}
+
+var PutApiV4GroupsIntegrationsMicrosoftTeamsById EndpointPattern = EndpointPattern{
+	Pattern: "/api/v4/groups/{id}/integrations/microsoft-teams",
+	Method:  "PUT",
+}
+
+var PutApiV4GroupsIntegrationsMockCiById EndpointPattern = EndpointPattern{
+	Pattern: "/api/v4/groups/{id}/integrations/mock-ci",
+	Method:  "PUT",
+}
+
+var PutApiV4GroupsIntegrationsMockMonitoringById EndpointPattern = EndpointPattern{
+	Pattern: "/api/v4/groups/{id}/integrations/mock-monitoring",
+	Method:  "PUT",
+}
+
+var PutApiV4GroupsIntegrationsPackagistById EndpointPattern = EndpointPattern{
+	Pattern: "/api/v4/groups/{id}/integrations/packagist",
+	Method:  "PUT",
+}
+
+var PutApiV4GroupsIntegrationsPhorgeById EndpointPattern = EndpointPattern{
+	Pattern: "/api/v4/groups/{id}/integrations/phorge",
+	Method:  "PUT",
+}
+
+var PutApiV4GroupsIntegrationsPipelinesEmailById EndpointPattern = EndpointPattern{
+	Pattern: "/api/v4/groups/{id}/integrations/pipelines-email",
+	Method:  "PUT",
+}
+
+var PutApiV4GroupsIntegrationsPivotaltrackerById EndpointPattern = EndpointPattern{
+	Pattern: "/api/v4/groups/{id}/integrations/pivotaltracker",
+	Method:  "PUT",
+}
+
+var PutApiV4GroupsIntegrationsPumbleById EndpointPattern = EndpointPattern{
+	Pattern: "/api/v4/groups/{id}/integrations/pumble",
+	Method:  "PUT",
+}
+
+var PutApiV4GroupsIntegrationsPushoverById EndpointPattern = EndpointPattern{
+	Pattern: "/api/v4/groups/{id}/integrations/pushover",
+	Method:  "PUT",
+}
+
+var PutApiV4GroupsIntegrationsRedmineById EndpointPattern = EndpointPattern{
+	Pattern: "/api/v4/groups/{id}/integrations/redmine",
+	Method:  "PUT",
+}
+
+var PutApiV4GroupsIntegrationsSlackById EndpointPattern = EndpointPattern{
+	Pattern: "/api/v4/groups/{id}/integrations/slack",
+	Method:  "PUT",
+}
+
+var PutApiV4GroupsIntegrationsSlackSlashCommandsById EndpointPattern = EndpointPattern{
+	Pattern: "/api/v4/groups/{id}/integrations/slack-slash-commands",
+	Method:  "PUT",
+}
+
+var PutApiV4GroupsIntegrationsSquashTmById EndpointPattern = EndpointPattern{
+	Pattern: "/api/v4/groups/{id}/integrations/squash-tm",
+	Method:  "PUT",
+}
+
+var PutApiV4GroupsIntegrationsTeamcityById EndpointPattern = EndpointPattern{
+	Pattern: "/api/v4/groups/{id}/integrations/teamcity",
+	Method:  "PUT",
+}
+
+var PutApiV4GroupsIntegrationsTelegramById EndpointPattern = EndpointPattern{
+	Pattern: "/api/v4/groups/{id}/integrations/telegram",
+	Method:  "PUT",
+}
+
+var PutApiV4GroupsIntegrationsUnifyCircuitById EndpointPattern = EndpointPattern{
+	Pattern: "/api/v4/groups/{id}/integrations/unify-circuit",
+	Method:  "PUT",
+}
+
+var PutApiV4GroupsIntegrationsWebexTeamsById EndpointPattern = EndpointPattern{
+	Pattern: "/api/v4/groups/{id}/integrations/webex-teams",
+	Method:  "PUT",
+}
+
+var PutApiV4GroupsIntegrationsYoutrackById EndpointPattern = EndpointPattern{
+	Pattern: "/api/v4/groups/{id}/integrations/youtrack",
+	Method:  "PUT",
+}
+
+var PutApiV4GroupsIntegrationsZentaoById EndpointPattern = EndpointPattern{
+	Pattern: "/api/v4/groups/{id}/integrations/zentao",
+	Method:  "PUT",
+}
+
+var DeleteApiV4GroupsIntegrationsByIdBySlug EndpointPattern = EndpointPattern{
+	Pattern: "/api/v4/groups/{id}/integrations/{slug}",
+	Method:  "DELETE",
+}
+
+var GetApiV4GroupsIntegrationsByIdBySlug EndpointPattern = EndpointPattern{
+	Pattern: "/api/v4/groups/{id}/integrations/{slug}",
 	Method:  "GET",
 }
 
@@ -867,6 +1192,21 @@ var GetApiV4GroupsPendingMembersById EndpointPattern = EndpointPattern{
 	Method:  "GET",
 }
 
+var GetApiV4GroupsPlaceholderReassignmentsById EndpointPattern = EndpointPattern{
+	Pattern: "/api/v4/groups/{id}/placeholder_reassignments",
+	Method:  "GET",
+}
+
+var PostApiV4GroupsPlaceholderReassignmentsById EndpointPattern = EndpointPattern{
+	Pattern: "/api/v4/groups/{id}/placeholder_reassignments",
+	Method:  "POST",
+}
+
+var PostApiV4GroupsPlaceholderReassignmentsAuthorizeById EndpointPattern = EndpointPattern{
+	Pattern: "/api/v4/groups/{id}/placeholder_reassignments/authorize",
+	Method:  "POST",
+}
+
 var GetApiV4GroupsProjectsById EndpointPattern = EndpointPattern{
 	Pattern: "/api/v4/groups/{id}/projects",
 	Method:  "GET",
@@ -912,6 +1252,11 @@ var PostApiV4GroupsRunnersResetRegistrationTokenById EndpointPattern = EndpointP
 	Method:  "POST",
 }
 
+var GetApiV4GroupsSamlUsersById EndpointPattern = EndpointPattern{
+	Pattern: "/api/v4/groups/{id}/saml_users",
+	Method:  "GET",
+}
+
 var PostApiV4GroupsShareById EndpointPattern = EndpointPattern{
 	Pattern: "/api/v4/groups/{id}/share",
 	Method:  "POST",
@@ -955,6 +1300,11 @@ var PostApiV4GroupsTransferById EndpointPattern = EndpointPattern{
 var GetApiV4GroupsTransferLocationsById EndpointPattern = EndpointPattern{
 	Pattern: "/api/v4/groups/{id}/transfer_locations",
 	Method:  "GET",
+}
+
+var PostApiV4GroupsUnarchiveById EndpointPattern = EndpointPattern{
+	Pattern: "/api/v4/groups/{id}/unarchive",
+	Method:  "POST",
 }
 
 var GetApiV4GroupsUploadsById EndpointPattern = EndpointPattern{
@@ -1307,6 +1657,11 @@ var PostApiV4PackagesConanV1ConansPackagesUploadUrlsByPackageNameByPackageVersio
 	Method:  "POST",
 }
 
+var GetApiV4PackagesConanV1ConansSearchByPackageNameByPackageVersionByPackageUsernameByPackageChannel EndpointPattern = EndpointPattern{
+	Pattern: "/api/v4/packages/conan/v1/conans/{package_name}/{package_version}/{package_username}/{package_channel}/search",
+	Method:  "GET",
+}
+
 var PostApiV4PackagesConanV1ConansUploadUrlsByPackageNameByPackageVersionByPackageUsernameByPackageChannel EndpointPattern = EndpointPattern{
 	Pattern: "/api/v4/packages/conan/v1/conans/{package_name}/{package_version}/{package_username}/{package_channel}/upload_urls",
 	Method:  "POST",
@@ -1467,21 +1822,6 @@ var PostApiV4PersonalAccessTokensRotateById EndpointPattern = EndpointPattern{
 	Method:  "POST",
 }
 
-var GetApiV4ProjectRepositoryStorageMoves EndpointPattern = EndpointPattern{
-	Pattern: "/api/v4/project_repository_storage_moves",
-	Method:  "GET",
-}
-
-var PostApiV4ProjectRepositoryStorageMoves EndpointPattern = EndpointPattern{
-	Pattern: "/api/v4/project_repository_storage_moves",
-	Method:  "POST",
-}
-
-var GetApiV4ProjectRepositoryStorageMovesByRepositoryStorageMoveId EndpointPattern = EndpointPattern{
-	Pattern: "/api/v4/project_repository_storage_moves/{repository_storage_move_id}",
-	Method:  "GET",
-}
-
 var GetApiV4Projects EndpointPattern = EndpointPattern{
 	Pattern: "/api/v4/projects",
 	Method:  "GET",
@@ -1589,6 +1929,11 @@ var GetApiV4ProjectsAccessTokensByIdByTokenId EndpointPattern = EndpointPattern{
 
 var PostApiV4ProjectsAccessTokensRotateByIdByTokenId EndpointPattern = EndpointPattern{
 	Pattern: "/api/v4/projects/{id}/access_tokens/{token_id}/rotate",
+	Method:  "POST",
+}
+
+var PostApiV4ProjectsAccessTokensSelfRotateById EndpointPattern = EndpointPattern{
+	Pattern: "/api/v4/projects/{id}/access_tokens/self/rotate",
 	Method:  "POST",
 }
 
@@ -2322,6 +2667,11 @@ var PutApiV4ProjectsIntegrationsJiraCloudAppById EndpointPattern = EndpointPatte
 	Method:  "PUT",
 }
 
+var PutApiV4ProjectsIntegrationsLinearById EndpointPattern = EndpointPattern{
+	Pattern: "/api/v4/projects/{id}/integrations/linear",
+	Method:  "PUT",
+}
+
 var PutApiV4ProjectsIntegrationsMatrixById EndpointPattern = EndpointPattern{
 	Pattern: "/api/v4/projects/{id}/integrations/matrix",
 	Method:  "PUT",
@@ -2374,11 +2724,6 @@ var PutApiV4ProjectsIntegrationsPipelinesEmailById EndpointPattern = EndpointPat
 
 var PutApiV4ProjectsIntegrationsPivotaltrackerById EndpointPattern = EndpointPattern{
 	Pattern: "/api/v4/projects/{id}/integrations/pivotaltracker",
-	Method:  "PUT",
-}
-
-var PutApiV4ProjectsIntegrationsPrometheusById EndpointPattern = EndpointPattern{
-	Pattern: "/api/v4/projects/{id}/integrations/prometheus",
 	Method:  "PUT",
 }
 
@@ -2522,6 +2867,26 @@ var PostApiV4ProjectsIssuesAddSpentTimeByIdByIssueIid EndpointPattern = Endpoint
 	Method:  "POST",
 }
 
+var GetApiV4ProjectsIssuesAwardEmojiByIdByIssueIid EndpointPattern = EndpointPattern{
+	Pattern: "/api/v4/projects/{id}/issues/{issue_iid}/award_emoji",
+	Method:  "GET",
+}
+
+var PostApiV4ProjectsIssuesAwardEmojiByIdByIssueIid EndpointPattern = EndpointPattern{
+	Pattern: "/api/v4/projects/{id}/issues/{issue_iid}/award_emoji",
+	Method:  "POST",
+}
+
+var DeleteApiV4ProjectsIssuesAwardEmojiByIdByIssueIidByAwardId EndpointPattern = EndpointPattern{
+	Pattern: "/api/v4/projects/{id}/issues/{issue_iid}/award_emoji/{award_id}",
+	Method:  "DELETE",
+}
+
+var GetApiV4ProjectsIssuesAwardEmojiByIdByIssueIidByAwardId EndpointPattern = EndpointPattern{
+	Pattern: "/api/v4/projects/{id}/issues/{issue_iid}/award_emoji/{award_id}",
+	Method:  "GET",
+}
+
 var PostApiV4ProjectsIssuesCloneByIdByIssueIid EndpointPattern = EndpointPattern{
 	Pattern: "/api/v4/projects/{id}/issues/{issue_iid}/clone",
 	Method:  "POST",
@@ -2580,6 +2945,26 @@ var PutApiV4ProjectsIssuesMetricImagesByIdByIssueIidByMetricImageId EndpointPatt
 var PostApiV4ProjectsIssuesMoveByIdByIssueIid EndpointPattern = EndpointPattern{
 	Pattern: "/api/v4/projects/{id}/issues/{issue_iid}/move",
 	Method:  "POST",
+}
+
+var GetApiV4ProjectsIssuesNotesAwardEmojiByIdByIssueIidByNoteId EndpointPattern = EndpointPattern{
+	Pattern: "/api/v4/projects/{id}/issues/{issue_iid}/notes/{note_id}/award_emoji",
+	Method:  "GET",
+}
+
+var PostApiV4ProjectsIssuesNotesAwardEmojiByIdByIssueIidByNoteId EndpointPattern = EndpointPattern{
+	Pattern: "/api/v4/projects/{id}/issues/{issue_iid}/notes/{note_id}/award_emoji",
+	Method:  "POST",
+}
+
+var DeleteApiV4ProjectsIssuesNotesAwardEmojiByIdByIssueIidByNoteIdByAwardId EndpointPattern = EndpointPattern{
+	Pattern: "/api/v4/projects/{id}/issues/{issue_iid}/notes/{note_id}/award_emoji/{award_id}",
+	Method:  "DELETE",
+}
+
+var GetApiV4ProjectsIssuesNotesAwardEmojiByIdByIssueIidByNoteIdByAwardId EndpointPattern = EndpointPattern{
+	Pattern: "/api/v4/projects/{id}/issues/{issue_iid}/notes/{note_id}/award_emoji/{award_id}",
+	Method:  "GET",
 }
 
 var GetApiV4ProjectsIssuesParticipantsByIdByIssueIid EndpointPattern = EndpointPattern{
@@ -2832,6 +3217,26 @@ var PostApiV4ProjectsMergeRequestsApproveByIdByMergeRequestIid EndpointPattern =
 	Method:  "POST",
 }
 
+var GetApiV4ProjectsMergeRequestsAwardEmojiByIdByMergeRequestIid EndpointPattern = EndpointPattern{
+	Pattern: "/api/v4/projects/{id}/merge_requests/{merge_request_iid}/award_emoji",
+	Method:  "GET",
+}
+
+var PostApiV4ProjectsMergeRequestsAwardEmojiByIdByMergeRequestIid EndpointPattern = EndpointPattern{
+	Pattern: "/api/v4/projects/{id}/merge_requests/{merge_request_iid}/award_emoji",
+	Method:  "POST",
+}
+
+var DeleteApiV4ProjectsMergeRequestsAwardEmojiByIdByMergeRequestIidByAwardId EndpointPattern = EndpointPattern{
+	Pattern: "/api/v4/projects/{id}/merge_requests/{merge_request_iid}/award_emoji/{award_id}",
+	Method:  "DELETE",
+}
+
+var GetApiV4ProjectsMergeRequestsAwardEmojiByIdByMergeRequestIidByAwardId EndpointPattern = EndpointPattern{
+	Pattern: "/api/v4/projects/{id}/merge_requests/{merge_request_iid}/award_emoji/{award_id}",
+	Method:  "GET",
+}
+
 var PostApiV4ProjectsMergeRequestsCancelMergeWhenPipelineSucceedsByIdByMergeRequestIid EndpointPattern = EndpointPattern{
 	Pattern: "/api/v4/projects/{id}/merge_requests/{merge_request_iid}/cancel_merge_when_pipeline_succeeds",
 	Method:  "POST",
@@ -2917,6 +3322,26 @@ var GetApiV4ProjectsMergeRequestsMergeRefByIdByMergeRequestIid EndpointPattern =
 	Method:  "GET",
 }
 
+var GetApiV4ProjectsMergeRequestsNotesAwardEmojiByIdByMergeRequestIidByNoteId EndpointPattern = EndpointPattern{
+	Pattern: "/api/v4/projects/{id}/merge_requests/{merge_request_iid}/notes/{note_id}/award_emoji",
+	Method:  "GET",
+}
+
+var PostApiV4ProjectsMergeRequestsNotesAwardEmojiByIdByMergeRequestIidByNoteId EndpointPattern = EndpointPattern{
+	Pattern: "/api/v4/projects/{id}/merge_requests/{merge_request_iid}/notes/{note_id}/award_emoji",
+	Method:  "POST",
+}
+
+var DeleteApiV4ProjectsMergeRequestsNotesAwardEmojiByIdByMergeRequestIidByNoteIdByAwardId EndpointPattern = EndpointPattern{
+	Pattern: "/api/v4/projects/{id}/merge_requests/{merge_request_iid}/notes/{note_id}/award_emoji/{award_id}",
+	Method:  "DELETE",
+}
+
+var GetApiV4ProjectsMergeRequestsNotesAwardEmojiByIdByMergeRequestIidByNoteIdByAwardId EndpointPattern = EndpointPattern{
+	Pattern: "/api/v4/projects/{id}/merge_requests/{merge_request_iid}/notes/{note_id}/award_emoji/{award_id}",
+	Method:  "GET",
+}
+
 var GetApiV4ProjectsMergeRequestsParticipantsByIdByMergeRequestIid EndpointPattern = EndpointPattern{
 	Pattern: "/api/v4/projects/{id}/merge_requests/{merge_request_iid}/participants",
 	Method:  "GET",
@@ -2930,6 +3355,11 @@ var GetApiV4ProjectsMergeRequestsPipelinesByIdByMergeRequestIid EndpointPattern 
 var PostApiV4ProjectsMergeRequestsPipelinesByIdByMergeRequestIid EndpointPattern = EndpointPattern{
 	Pattern: "/api/v4/projects/{id}/merge_requests/{merge_request_iid}/pipelines",
 	Method:  "POST",
+}
+
+var GetApiV4ProjectsMergeRequestsRawDiffsByIdByMergeRequestIid EndpointPattern = EndpointPattern{
+	Pattern: "/api/v4/projects/{id}/merge_requests/{merge_request_iid}/raw_diffs",
+	Method:  "GET",
 }
 
 var PutApiV4ProjectsMergeRequestsRebaseByIdByMergeRequestIid EndpointPattern = EndpointPattern{
@@ -2992,6 +3422,11 @@ var GetApiV4ProjectsPackagesById EndpointPattern = EndpointPattern{
 	Method:  "GET",
 }
 
+var GetApiV4ProjectsPackagesCargoConfigJsonById EndpointPattern = EndpointPattern{
+	Pattern: "/api/v4/projects/{id}/packages/cargo/config.json",
+	Method:  "GET",
+}
+
 var PostApiV4ProjectsPackagesComposerById EndpointPattern = EndpointPattern{
 	Pattern: "/api/v4/projects/{id}/packages/composer",
 	Method:  "POST",
@@ -3047,6 +3482,11 @@ var PostApiV4ProjectsPackagesConanV1ConansPackagesUploadUrlsByIdByPackageNameByP
 	Method:  "POST",
 }
 
+var GetApiV4ProjectsPackagesConanV1ConansSearchByIdByPackageNameByPackageVersionByPackageUsernameByPackageChannel EndpointPattern = EndpointPattern{
+	Pattern: "/api/v4/projects/{id}/packages/conan/v1/conans/{package_name}/{package_version}/{package_username}/{package_channel}/search",
+	Method:  "GET",
+}
+
 var PostApiV4ProjectsPackagesConanV1ConansUploadUrlsByIdByPackageNameByPackageVersionByPackageUsernameByPackageChannel EndpointPattern = EndpointPattern{
 	Pattern: "/api/v4/projects/{id}/packages/conan/v1/conans/{package_name}/{package_version}/{package_username}/{package_channel}/upload_urls",
 	Method:  "POST",
@@ -3094,6 +3534,101 @@ var GetApiV4ProjectsPackagesConanV1UsersAuthenticateById EndpointPattern = Endpo
 
 var GetApiV4ProjectsPackagesConanV1UsersCheckCredentialsById EndpointPattern = EndpointPattern{
 	Pattern: "/api/v4/projects/{id}/packages/conan/v1/users/check_credentials",
+	Method:  "GET",
+}
+
+var GetApiV4ProjectsPackagesConanV2ConansSearchById EndpointPattern = EndpointPattern{
+	Pattern: "/api/v4/projects/{id}/packages/conan/v2/conans/search",
+	Method:  "GET",
+}
+
+var GetApiV4ProjectsPackagesConanV2ConansLatestByIdByPackageNameByPackageVersionByPackageUsernameByPackageChannel EndpointPattern = EndpointPattern{
+	Pattern: "/api/v4/projects/{id}/packages/conan/v2/conans/{package_name}/{package_version}/{package_username}/{package_channel}/latest",
+	Method:  "GET",
+}
+
+var GetApiV4ProjectsPackagesConanV2ConansRevisionsByIdByPackageNameByPackageVersionByPackageUsernameByPackageChannel EndpointPattern = EndpointPattern{
+	Pattern: "/api/v4/projects/{id}/packages/conan/v2/conans/{package_name}/{package_version}/{package_username}/{package_channel}/revisions",
+	Method:  "GET",
+}
+
+var DeleteApiV4ProjectsPackagesConanV2ConansRevisionsByIdByPackageNameByPackageVersionByPackageUsernameByPackageChannelByRecipeRevision EndpointPattern = EndpointPattern{
+	Pattern: "/api/v4/projects/{id}/packages/conan/v2/conans/{package_name}/{package_version}/{package_username}/{package_channel}/revisions/{recipe_revision}",
+	Method:  "DELETE",
+}
+
+var GetApiV4ProjectsPackagesConanV2ConansRevisionsFilesByIdByPackageNameByPackageVersionByPackageUsernameByPackageChannelByRecipeRevision EndpointPattern = EndpointPattern{
+	Pattern: "/api/v4/projects/{id}/packages/conan/v2/conans/{package_name}/{package_version}/{package_username}/{package_channel}/revisions/{recipe_revision}/files",
+	Method:  "GET",
+}
+
+var GetApiV4ProjectsPackagesConanV2ConansRevisionsFilesByIdByPackageNameByPackageVersionByPackageUsernameByPackageChannelByRecipeRevisionByFileName EndpointPattern = EndpointPattern{
+	Pattern: "/api/v4/projects/{id}/packages/conan/v2/conans/{package_name}/{package_version}/{package_username}/{package_channel}/revisions/{recipe_revision}/files/{file_name}",
+	Method:  "GET",
+}
+
+var PutApiV4ProjectsPackagesConanV2ConansRevisionsFilesByIdByPackageNameByPackageVersionByPackageUsernameByPackageChannelByRecipeRevisionByFileName EndpointPattern = EndpointPattern{
+	Pattern: "/api/v4/projects/{id}/packages/conan/v2/conans/{package_name}/{package_version}/{package_username}/{package_channel}/revisions/{recipe_revision}/files/{file_name}",
+	Method:  "PUT",
+}
+
+var PutApiV4ProjectsPackagesConanV2ConansRevisionsFilesAuthorizeByIdByPackageNameByPackageVersionByPackageUsernameByPackageChannelByRecipeRevisionByFileName EndpointPattern = EndpointPattern{
+	Pattern: "/api/v4/projects/{id}/packages/conan/v2/conans/{package_name}/{package_version}/{package_username}/{package_channel}/revisions/{recipe_revision}/files/{file_name}/authorize",
+	Method:  "PUT",
+}
+
+var GetApiV4ProjectsPackagesConanV2ConansRevisionsPackagesLatestByIdByPackageNameByPackageVersionByPackageUsernameByPackageChannelByRecipeRevisionByConanPackageReference EndpointPattern = EndpointPattern{
+	Pattern: "/api/v4/projects/{id}/packages/conan/v2/conans/{package_name}/{package_version}/{package_username}/{package_channel}/revisions/{recipe_revision}/packages/{conan_package_reference}/latest",
+	Method:  "GET",
+}
+
+var GetApiV4ProjectsPackagesConanV2ConansRevisionsPackagesRevisionsByIdByPackageNameByPackageVersionByPackageUsernameByPackageChannelByRecipeRevisionByConanPackageReference EndpointPattern = EndpointPattern{
+	Pattern: "/api/v4/projects/{id}/packages/conan/v2/conans/{package_name}/{package_version}/{package_username}/{package_channel}/revisions/{recipe_revision}/packages/{conan_package_reference}/revisions",
+	Method:  "GET",
+}
+
+var DeleteApiV4ProjectsPackagesConanV2ConansRevisionsPackagesRevisionsByIdByPackageNameByPackageVersionByPackageUsernameByPackageChannelByRecipeRevisionByConanPackageReferenceByPackageRevision EndpointPattern = EndpointPattern{
+	Pattern: "/api/v4/projects/{id}/packages/conan/v2/conans/{package_name}/{package_version}/{package_username}/{package_channel}/revisions/{recipe_revision}/packages/{conan_package_reference}/revisions/{package_revision}",
+	Method:  "DELETE",
+}
+
+var GetApiV4ProjectsPackagesConanV2ConansRevisionsPackagesRevisionsFilesByIdByPackageNameByPackageVersionByPackageUsernameByPackageChannelByRecipeRevisionByConanPackageReferenceByPackageRevision EndpointPattern = EndpointPattern{
+	Pattern: "/api/v4/projects/{id}/packages/conan/v2/conans/{package_name}/{package_version}/{package_username}/{package_channel}/revisions/{recipe_revision}/packages/{conan_package_reference}/revisions/{package_revision}/files",
+	Method:  "GET",
+}
+
+var GetApiV4ProjectsPackagesConanV2ConansRevisionsPackagesRevisionsFilesByIdByPackageNameByPackageVersionByPackageUsernameByPackageChannelByRecipeRevisionByConanPackageReferenceByPackageRevisionByFileName EndpointPattern = EndpointPattern{
+	Pattern: "/api/v4/projects/{id}/packages/conan/v2/conans/{package_name}/{package_version}/{package_username}/{package_channel}/revisions/{recipe_revision}/packages/{conan_package_reference}/revisions/{package_revision}/files/{file_name}",
+	Method:  "GET",
+}
+
+var PutApiV4ProjectsPackagesConanV2ConansRevisionsPackagesRevisionsFilesByIdByPackageNameByPackageVersionByPackageUsernameByPackageChannelByRecipeRevisionByConanPackageReferenceByPackageRevisionByFileName EndpointPattern = EndpointPattern{
+	Pattern: "/api/v4/projects/{id}/packages/conan/v2/conans/{package_name}/{package_version}/{package_username}/{package_channel}/revisions/{recipe_revision}/packages/{conan_package_reference}/revisions/{package_revision}/files/{file_name}",
+	Method:  "PUT",
+}
+
+var PutApiV4ProjectsPackagesConanV2ConansRevisionsPackagesRevisionsFilesAuthorizeByIdByPackageNameByPackageVersionByPackageUsernameByPackageChannelByRecipeRevisionByConanPackageReferenceByPackageRevisionByFileName EndpointPattern = EndpointPattern{
+	Pattern: "/api/v4/projects/{id}/packages/conan/v2/conans/{package_name}/{package_version}/{package_username}/{package_channel}/revisions/{recipe_revision}/packages/{conan_package_reference}/revisions/{package_revision}/files/{file_name}/authorize",
+	Method:  "PUT",
+}
+
+var GetApiV4ProjectsPackagesConanV2ConansRevisionsSearchByIdByPackageNameByPackageVersionByPackageUsernameByPackageChannelByRecipeRevision EndpointPattern = EndpointPattern{
+	Pattern: "/api/v4/projects/{id}/packages/conan/v2/conans/{package_name}/{package_version}/{package_username}/{package_channel}/revisions/{recipe_revision}/search",
+	Method:  "GET",
+}
+
+var GetApiV4ProjectsPackagesConanV2ConansSearchByIdByPackageNameByPackageVersionByPackageUsernameByPackageChannel EndpointPattern = EndpointPattern{
+	Pattern: "/api/v4/projects/{id}/packages/conan/v2/conans/{package_name}/{package_version}/{package_username}/{package_channel}/search",
+	Method:  "GET",
+}
+
+var GetApiV4ProjectsPackagesConanV2UsersAuthenticateById EndpointPattern = EndpointPattern{
+	Pattern: "/api/v4/projects/{id}/packages/conan/v2/users/authenticate",
+	Method:  "GET",
+}
+
+var GetApiV4ProjectsPackagesConanV2UsersCheckCredentialsById EndpointPattern = EndpointPattern{
+	Pattern: "/api/v4/projects/{id}/packages/conan/v2/users/check_credentials",
 	Method:  "GET",
 }
 
@@ -3542,6 +4077,11 @@ var PutApiV4ProjectsPagesDomainsByIdByDomain EndpointPattern = EndpointPattern{
 	Method:  "PUT",
 }
 
+var PutApiV4ProjectsPagesDomainsVerifyByIdByDomain EndpointPattern = EndpointPattern{
+	Pattern: "/api/v4/projects/{id}/pages/domains/{domain}/verify",
+	Method:  "PUT",
+}
+
 var GetApiV4ProjectsPagesAccessById EndpointPattern = EndpointPattern{
 	Pattern: "/api/v4/projects/{id}/pages_access",
 	Method:  "GET",
@@ -3712,6 +4252,26 @@ var GetApiV4ProjectsProtectedTagsByIdByName EndpointPattern = EndpointPattern{
 	Method:  "GET",
 }
 
+var GetApiV4ProjectsRegistryProtectionRepositoryRulesById EndpointPattern = EndpointPattern{
+	Pattern: "/api/v4/projects/{id}/registry/protection/repository/rules",
+	Method:  "GET",
+}
+
+var PostApiV4ProjectsRegistryProtectionRepositoryRulesById EndpointPattern = EndpointPattern{
+	Pattern: "/api/v4/projects/{id}/registry/protection/repository/rules",
+	Method:  "POST",
+}
+
+var DeleteApiV4ProjectsRegistryProtectionRepositoryRulesByIdByProtectionRuleId EndpointPattern = EndpointPattern{
+	Pattern: "/api/v4/projects/{id}/registry/protection/repository/rules/{protection_rule_id}",
+	Method:  "DELETE",
+}
+
+var PatchApiV4ProjectsRegistryProtectionRepositoryRulesByIdByProtectionRuleId EndpointPattern = EndpointPattern{
+	Pattern: "/api/v4/projects/{id}/registry/protection/repository/rules/{protection_rule_id}",
+	Method:  "PATCH",
+}
+
 var GetApiV4ProjectsRegistryRepositoriesById EndpointPattern = EndpointPattern{
 	Pattern: "/api/v4/projects/{id}/registry/repositories",
 	Method:  "GET",
@@ -3835,6 +4395,11 @@ var GetApiV4ProjectsRemoteMirrorsByIdByMirrorId EndpointPattern = EndpointPatter
 var PutApiV4ProjectsRemoteMirrorsByIdByMirrorId EndpointPattern = EndpointPattern{
 	Pattern: "/api/v4/projects/{id}/remote_mirrors/{mirror_id}",
 	Method:  "PUT",
+}
+
+var GetApiV4ProjectsRemoteMirrorsPublicKeyByIdByMirrorId EndpointPattern = EndpointPattern{
+	Pattern: "/api/v4/projects/{id}/remote_mirrors/{mirror_id}/public_key",
+	Method:  "GET",
 }
 
 var PostApiV4ProjectsRemoteMirrorsSyncByIdByMirrorId EndpointPattern = EndpointPattern{
@@ -4017,6 +4582,11 @@ var GetApiV4ProjectsRepositoryFilesRawByIdByFilePath EndpointPattern = EndpointP
 	Method:  "GET",
 }
 
+var GetApiV4ProjectsRepositoryHealthById EndpointPattern = EndpointPattern{
+	Pattern: "/api/v4/projects/{id}/repository/health",
+	Method:  "GET",
+}
+
 var GetApiV4ProjectsRepositoryMergeBaseById EndpointPattern = EndpointPattern{
 	Pattern: "/api/v4/projects/{id}/repository/merge_base",
 	Method:  "GET",
@@ -4065,21 +4635,6 @@ var GetApiV4ProjectsRepositoryTreeById EndpointPattern = EndpointPattern{
 var PostApiV4ProjectsRepositorySizeById EndpointPattern = EndpointPattern{
 	Pattern: "/api/v4/projects/{id}/repository_size",
 	Method:  "POST",
-}
-
-var GetApiV4ProjectsRepositoryStorageMovesById EndpointPattern = EndpointPattern{
-	Pattern: "/api/v4/projects/{id}/repository_storage_moves",
-	Method:  "GET",
-}
-
-var PostApiV4ProjectsRepositoryStorageMovesById EndpointPattern = EndpointPattern{
-	Pattern: "/api/v4/projects/{id}/repository_storage_moves",
-	Method:  "POST",
-}
-
-var GetApiV4ProjectsRepositoryStorageMovesByIdByRepositoryStorageMoveId EndpointPattern = EndpointPattern{
-	Pattern: "/api/v4/projects/{id}/repository_storage_moves/{repository_storage_move_id}",
-	Method:  "GET",
 }
 
 var GetApiV4ProjectsResourceGroupsById EndpointPattern = EndpointPattern{
@@ -4302,6 +4857,11 @@ var PutApiV4ProjectsServicesJiraCloudAppById EndpointPattern = EndpointPattern{
 	Method:  "PUT",
 }
 
+var PutApiV4ProjectsServicesLinearById EndpointPattern = EndpointPattern{
+	Pattern: "/api/v4/projects/{id}/services/linear",
+	Method:  "PUT",
+}
+
 var PutApiV4ProjectsServicesMatrixById EndpointPattern = EndpointPattern{
 	Pattern: "/api/v4/projects/{id}/services/matrix",
 	Method:  "PUT",
@@ -4482,8 +5042,48 @@ var PutApiV4ProjectsSnippetsByIdBySnippetId EndpointPattern = EndpointPattern{
 	Method:  "PUT",
 }
 
+var GetApiV4ProjectsSnippetsAwardEmojiByIdBySnippetId EndpointPattern = EndpointPattern{
+	Pattern: "/api/v4/projects/{id}/snippets/{snippet_id}/award_emoji",
+	Method:  "GET",
+}
+
+var PostApiV4ProjectsSnippetsAwardEmojiByIdBySnippetId EndpointPattern = EndpointPattern{
+	Pattern: "/api/v4/projects/{id}/snippets/{snippet_id}/award_emoji",
+	Method:  "POST",
+}
+
+var DeleteApiV4ProjectsSnippetsAwardEmojiByIdBySnippetIdByAwardId EndpointPattern = EndpointPattern{
+	Pattern: "/api/v4/projects/{id}/snippets/{snippet_id}/award_emoji/{award_id}",
+	Method:  "DELETE",
+}
+
+var GetApiV4ProjectsSnippetsAwardEmojiByIdBySnippetIdByAwardId EndpointPattern = EndpointPattern{
+	Pattern: "/api/v4/projects/{id}/snippets/{snippet_id}/award_emoji/{award_id}",
+	Method:  "GET",
+}
+
 var GetApiV4ProjectsSnippetsFilesRawByIdBySnippetIdByRefByFilePath EndpointPattern = EndpointPattern{
 	Pattern: "/api/v4/projects/{id}/snippets/{snippet_id}/files/{ref}/{file_path}/raw",
+	Method:  "GET",
+}
+
+var GetApiV4ProjectsSnippetsNotesAwardEmojiByIdBySnippetIdByNoteId EndpointPattern = EndpointPattern{
+	Pattern: "/api/v4/projects/{id}/snippets/{snippet_id}/notes/{note_id}/award_emoji",
+	Method:  "GET",
+}
+
+var PostApiV4ProjectsSnippetsNotesAwardEmojiByIdBySnippetIdByNoteId EndpointPattern = EndpointPattern{
+	Pattern: "/api/v4/projects/{id}/snippets/{snippet_id}/notes/{note_id}/award_emoji",
+	Method:  "POST",
+}
+
+var DeleteApiV4ProjectsSnippetsNotesAwardEmojiByIdBySnippetIdByNoteIdByAwardId EndpointPattern = EndpointPattern{
+	Pattern: "/api/v4/projects/{id}/snippets/{snippet_id}/notes/{note_id}/award_emoji/{award_id}",
+	Method:  "DELETE",
+}
+
+var GetApiV4ProjectsSnippetsNotesAwardEmojiByIdBySnippetIdByNoteIdByAwardId EndpointPattern = EndpointPattern{
+	Pattern: "/api/v4/projects/{id}/snippets/{snippet_id}/notes/{note_id}/award_emoji/{award_id}",
 	Method:  "GET",
 }
 
