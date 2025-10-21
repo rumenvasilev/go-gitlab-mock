@@ -1,6 +1,8 @@
 # go-gitlab-mock
 [![Go Reference](https://pkg.go.dev/badge/github.com/rumenvasilev/go-gitlab-mock.svg)](https://pkg.go.dev/github.com/rumenvasilev/go-gitlab-mock) [![Go Report Card](https://goreportcard.com/badge/github.com/rumenvasilev/go-gitlab-mock)](https://goreportcard.com/report/github.com/rumenvasilev/go-gitlab-mock) [![Build](https://github.com/rumenvasilev/go-gitlab-mock/actions/workflows/build.yaml/badge.svg)](https://github.com/rumenvasilev/go-gitlab-mock/actions/workflows/build.yaml)
 
+***THIS LIBRARY IS NO LONGER NEEDED, GITLAB HAVE PUBLISHED THEIR OWN https://gitlab.com/gitlab-org/api/client-go/-/tree/main/testing***
+
 A library to aid unit testing Go code that uses Gitlab SDK (currently based on `github.com/xanzy/go-gitlab`)
 
 ***I've copied (and adapted) the code generation and mock structure from github.com/migueleliasweb/go-github-mock. That is reflected in the LICENSE as well. To get to the current state though, I had to build GitLab's OpenAPI spec. It is not available on the internet (at least I couldn't find a near-complete spec), which is why I have generated it off their source code and then used it for the mocks.***
